@@ -36,8 +36,8 @@ export default function DiagnosticPage() {
         )}
       />
 
-      <section className="pb-[var(--section-y-tight)] pt-36 lg:pt-48" aria-labelledby="diagnostic-title">
-        <div className="shell">
+      <section className="surface-veil relative pb-[var(--section-y-tight)] pt-36 lg:pt-48" aria-labelledby="diagnostic-title">
+        <div className="shell relative z-[1]">
           <SectionLabel index="00" active>
             {diagnosticIntro.eyebrow}
           </SectionLabel>
@@ -54,7 +54,7 @@ export default function DiagnosticPage() {
             <div className="col-span-12 mt-8 lg:col-span-4 lg:col-start-9 lg:mt-0 lg:self-end">
               <Reveal delay={0.08}>
                 <p className="t-body">{diagnosticIntro.body}</p>
-                <p className="t-meta-sm mt-6 text-titanium-faint">
+                <p className="t-meta-sm mt-8 text-titanium-faint">
                   Response <span className="px-1">/</span> {site.responseWindow}
                 </p>
               </Reveal>

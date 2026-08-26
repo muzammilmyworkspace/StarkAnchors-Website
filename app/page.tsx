@@ -2,16 +2,20 @@ import { PageField } from "@/components/backgrounds/PageField";
 import { SystemBoot } from "@/components/layout/SystemBoot";
 import { Hero } from "@/features/home/sections/Hero";
 import { SystemStatusBar } from "@/features/home/sections/SystemStatusBar";
+import { WhatWeEngineer } from "@/features/home/sections/WhatWeEngineer";
+import { HowWeHelp } from "@/features/home/sections/HowWeHelp";
 import { RevenueLeakage } from "@/features/home/sections/RevenueLeakage";
 import { DebuggingMethodology } from "@/features/home/sections/DebuggingMethodology";
 import { PipelineArchitecture } from "@/features/home/sections/PipelineArchitecture";
+import { CoreValues } from "@/features/home/sections/CoreValues";
 import { DifferenceLedger } from "@/features/home/sections/DifferenceLedger";
+import { LatestLogs } from "@/features/home/sections/LatestLogs";
 import { ClosingStatement } from "@/features/home/sections/ClosingStatement";
 import { site } from "@/data/site";
 import { buildMetadata } from "@/lib/seo/metadata";
 
 export const metadata = buildMetadata({
-  title: `${site.discipline}`,
+  title: site.discipline,
   description: site.description,
   path: "/",
 });
@@ -19,16 +23,27 @@ export const metadata = buildMetadata({
 /**
  * HOME
  *
- * Section rhythm, deliberately varied so the page never settles into a
- * repeating component shape:
+ * The flow is a conversion journey, not a feature list:
  *
- *   Hero            asymmetric, bottom-weighted, drawing title block
- *   Status          full-bleed instrument strip
- *   Diagnosis       full-width interactive flow band
- *   Methodology     vertical spine architecture
- *   Pipeline        tonal band, annotated technical drawing
- *   Difference      centre-divided editorial ledger
- *   Closing         typographic, asymmetric, one action
+ *   Hero            what we do, in one statement
+ *   Status          the environment declares itself
+ *   Capabilities    what we build — answers "can you do X?" immediately
+ *   Application     how it applies to *me*, in the visitor's own words
+ *   Diagnosis       the problem, made visible as an instrument
+ *   Methodology     how we approach it
+ *   Pipeline        the architecture that results
+ *   Principles      who we are — the trust section
+ *   Difference      why the order of operations matters
+ *   Logs            evidence of thinking
+ *   Closing         one action
+ *
+ * Awareness → capability → relevance → problem → method → trust → action.
+ *
+ * Section rhythm is deliberately varied so the page never settles into a
+ * repeating component shape: asymmetric hero, full-bleed instrument
+ * strip, icon index, editorial switchboard with photography, interactive
+ * flow band, vertical spine, tonal technical plate, scroll-driven values
+ * instrument, centre-divided ledger, editorial list, typographic close.
  */
 export default function HomePage() {
   return (
@@ -38,10 +53,14 @@ export default function HomePage() {
 
       <Hero />
       <SystemStatusBar />
+      <WhatWeEngineer />
+      <HowWeHelp />
       <RevenueLeakage />
       <DebuggingMethodology />
       <PipelineArchitecture />
+      <CoreValues />
       <DifferenceLedger />
+      <LatestLogs />
       <ClosingStatement />
     </>
   );

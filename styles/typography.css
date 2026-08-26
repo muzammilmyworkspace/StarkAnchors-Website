@@ -48,13 +48,17 @@
   text-transform: uppercase;
 }
 
-/* Editorial serif-free pull quote: sentence case, looser, lighter. */
-.t-statement {
-  font-family: var(--font-display);
-  font-weight: 500;
-  font-size: clamp(1.35rem, 2.5vw, 2.1rem);
-  line-height: 1.24;
-  letter-spacing: -0.018em;
+/* Lead paragraph. Deliberately Inter, not the display face: this class
+   carries multi-sentence prose (mission, vision, section leads) and a
+   display grotesk at paragraph length is hostile to read. Display type
+   is for headlines; this is for sentences. */
+.t-lead {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: clamp(1.125rem, 1.7vw, 1.5rem);
+  line-height: 1.5;
+  letter-spacing: -0.012em;
+  color: var(--titanium-dim);
   text-wrap: pretty;
 }
 
@@ -82,7 +86,7 @@
 /* --- BODY ---------------------------------------------------- */
 .t-body-l {
   font-family: var(--font-body);
-  font-size: clamp(1rem, 1.15vw, 1.1875rem);
+  font-size: clamp(1.0625rem, 1.2vw, 1.25rem);
   line-height: 1.62;
   letter-spacing: -0.005em;
   color: var(--titanium-dim);
@@ -91,8 +95,8 @@
 
 .t-body {
   font-family: var(--font-body);
-  font-size: 1rem;
-  line-height: 1.68;
+  font-size: 1.0625rem;
+  line-height: 1.7;
   letter-spacing: -0.003em;
   color: var(--titanium-dim);
   text-wrap: pretty;
@@ -100,9 +104,9 @@
 
 .t-body-s {
   font-family: var(--font-body);
-  font-size: 0.875rem;
-  line-height: 1.62;
-  color: var(--titanium-faint);
+  font-size: 0.9375rem;
+  line-height: 1.66;
+  color: var(--titanium-dim);
   text-wrap: pretty;
 }
 
@@ -111,10 +115,10 @@
    Discovered details — never wallpaper. */
 .t-meta {
   font-family: var(--font-mono);
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   font-weight: 500;
   line-height: 1;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.11em;
   text-transform: uppercase;
   color: var(--titanium-faint);
   font-variant-numeric: tabular-nums;
@@ -122,10 +126,10 @@
 
 .t-meta-sm {
   font-family: var(--font-mono);
-  font-size: 0.625rem;
+  font-size: 0.6875rem;
   font-weight: 500;
   line-height: 1;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
   color: var(--titanium-faint);
   font-variant-numeric: tabular-nums;
@@ -146,7 +150,7 @@
 .prose-log {
   font-family: var(--font-body);
   color: var(--titanium-dim);
-  font-size: 1.0625rem;
+  font-size: 1.125rem;
   line-height: 1.72;
   letter-spacing: -0.004em;
 }

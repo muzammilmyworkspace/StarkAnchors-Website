@@ -87,7 +87,7 @@ export function PricingScopes() {
                     <RevealItem
                       key={item}
                       as="li"
-                      className="flex gap-4 border-b border-line py-3.5"
+                      className="flex gap-4 py-2"
                     >
                       <span
                         aria-hidden

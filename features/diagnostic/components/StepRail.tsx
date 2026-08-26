@@ -43,7 +43,7 @@ export function StepRail({ current, furthest, onSelect }: StepRailProps) {
                   disabled={!reachable}
                   onClick={() => reachable && onSelect(index)}
                   aria-current={active ? "step" : undefined}
-                  className="group flex w-full items-baseline gap-4 py-2.5 text-left disabled:cursor-default"
+                  className="group flex w-full items-baseline gap-4 py-3.5 text-left disabled:cursor-default"
                 >
                   <span
                     aria-hidden

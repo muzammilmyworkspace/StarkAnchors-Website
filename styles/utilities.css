@@ -118,38 +118,51 @@
 .btn-inline:hover .arrow { transform: translateX(4px); }
 
 /* --- FIELDS ----------------------------------------------------
-   Instrument inputs: baseline rule, no box. 2px radius only where
-   a fill exists, so the control still reads as an input. */
+   A baseline-rule input looks elegant in a design file and fails in
+   use: over a live background a visitor cannot see where the field
+   is, whether it has focus, or how much room they have. These are
+   real controls with a real surface, a visible border and an
+   unmistakable focus state. Premium is not the same as invisible. */
 .field {
   width: 100%;
-  background: transparent;
-  border: 0;
-  border-bottom: var(--hairline) solid var(--line-strong);
-  border-radius: var(--radius-none);
-  padding: 0.75rem 0 0.7rem;
+  background: var(--slate-raised);
+  border: var(--hairline) solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1rem;
   color: var(--titanium);
   font-family: var(--font-body);
   font-size: 1rem;
   letter-spacing: -0.003em;
-  transition: border-color var(--dur-fast) var(--ease-out);
+  transition:
+    border-color var(--dur-fast) var(--ease-out),
+    background var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out);
 }
 .field::placeholder { color: var(--titanium-faint); }
-.field:hover { border-bottom-color: var(--line-bright); }
+.field:hover { border-color: var(--line-bright); }
 .field:focus {
   outline: none;
-  border-bottom-color: var(--laser);
+  border-color: var(--laser);
+  background: var(--slate);
+  /* A ring rather than an outline, so the field reads as energised
+     rather than merely selected. */
+  box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.16);
 }
-.field[aria-invalid="true"] { border-bottom-color: var(--status-fault); }
-textarea.field { resize: vertical; min-height: 6.5rem; line-height: 1.6; }
+.field[aria-invalid="true"] {
+  border-color: var(--status-fault);
+  box-shadow: 0 0 0 3px rgba(240, 115, 106, 0.14);
+}
+textarea.field { resize: vertical; min-height: 7.5rem; line-height: 1.6; }
 
-/* Selectable option tile — square, hairline, fills on select. */
+/* Selectable option tile. Same surface language as the inputs so a
+   choice field is visibly the same kind of control as a text field. */
 .option {
   display: block;
   width: 100%;
   text-align: left;
   padding: 0.9rem 1rem;
-  background: transparent;
-  border: var(--hairline) solid var(--line);
+  background: color-mix(in oklab, var(--slate-raised) 62%, transparent);
+  border: var(--hairline) solid var(--line-strong);
   border-radius: var(--radius-sm);
   color: var(--titanium-dim);
   font-family: var(--font-body);
@@ -160,12 +173,21 @@ textarea.field { resize: vertical; min-height: 6.5rem; line-height: 1.6; }
     color var(--dur-fast) var(--ease-out),
     background var(--dur-fast) var(--ease-out);
 }
-.option:hover { border-color: var(--line-bright); color: var(--titanium); }
+.option:hover { border-color: var(--line-bright); color: var(--titanium); background: var(--slate-raised); }
 .option[aria-pressed="true"],
 .option[data-selected="true"] {
-  border-color: var(--laser-soft);
+  border-color: var(--laser);
   background: var(--laser-wash);
   color: var(--titanium);
+}
+
+/* The form’s own ground. The diagnostic is the one place on the site
+   where a visitor has to do sustained work, so it gets an explicit
+   panel instead of an edgeless veil. */
+.form-surface {
+  background: color-mix(in oklab, var(--slate) 62%, transparent);
+  border: var(--hairline) solid var(--line);
+  border-radius: var(--radius-none);
 }
 
 /* --- FOCUS -----------------------------------------------------
@@ -229,5 +251,145 @@ textarea.field { resize: vertical; min-height: 6.5rem; line-height: 1.6; }
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================================
+   CONTENT VISIBILITY LAYERS
+
+   The field is part of the identity and stays. But a live network
+   running underneath a paragraph is a readability tax, so every
+   text-bearing section sits on a ground that calms the area behind
+   the words while leaving the network visible around them.
+
+   Background = live system environment.
+   Content    = focused information window.
+
+   Deliberately five different techniques rather than one. Wrapping
+   every section in the same translucent rounded card is the fastest
+   route to a page that looks generated, so the grounds differ by
+   section: some are edgeless veils, some are full-bleed bands, some
+   are solid plates, some are recessed wells.
+   ============================================================ */
+
+/* 1 — VEIL. An edgeless radial darkening. Has no shape of its own:
+   you cannot point at where it begins, which is the whole point. */
+.surface-veil::before {
+  content: "";
+  position: absolute;
+  /* Vertical bleed only. Horizontal overflow here widens the mobile
+     layout viewport, which drags every fixed element off-screen with
+     it — the gradient fades out well inside the edges anyway, so it
+     costs nothing to stay in the box. */
+  inset: -8% 0;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(
+    ellipse 62% 58% at 38% 50%,
+    rgba(13, 13, 17, 0.94) 0%,
+    rgba(13, 13, 17, 0.82) 38%,
+    rgba(13, 13, 17, 0.45) 62%,
+    rgba(13, 13, 17, 0) 82%
+  );
+}
+
+/* 2 — BAND. A full-bleed translucent slate run with hairlines top and
+   bottom only. Reads as a horizontal stratum, not a container. */
+.surface-band {
+  background: color-mix(in oklab, var(--slate) 78%, transparent);
+  border-top: var(--hairline) solid var(--line);
+  border-bottom: var(--hairline) solid var(--line);
+}
+
+/* 3 — PLATE. Near-solid slate. Reserved for the technical exhibits,
+   where the diagram needs a stable ground to be legible against. */
+.surface-plate {
+  background: color-mix(in oklab, var(--slate) 94%, transparent);
+}
+
+/* 4 — WELL. Recessed rather than raised. Used where a section should
+   read as beneath the page rather than on top of it. */
+.surface-well {
+  background: color-mix(in oklab, var(--obsidian-deep) 88%, transparent);
+  border-top: var(--hairline) solid var(--line);
+}
+
+/* 5 — WASH. A directional fade, opaque under the text edge and clear
+   at the far edge. For split compositions where the field should stay
+   legible on one side of the grid and the copy on the other. */
+.surface-wash::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: linear-gradient(
+    100deg,
+    rgba(13, 13, 17, 0.95) 0%,
+    rgba(13, 13, 17, 0.88) 34%,
+    rgba(13, 13, 17, 0.35) 66%,
+    rgba(13, 13, 17, 0) 88%
+  );
+}
+
+/* Content must sit above whichever ground the section chose. */
+.surface-veil > *,
+.surface-wash > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Local ground for a single block — a paragraph over open field, where
+   veiling the whole section would flatten the composition. */
+.veil-local {
+  position: relative;
+}
+.veil-local::before {
+  content: "";
+  position: absolute;
+  inset: -1.75rem -1.5rem;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(
+    ellipse 66% 62% at 34% 50%,
+    rgba(13, 13, 17, 0.92) 0%,
+    rgba(13, 13, 17, 0.7) 48%,
+    rgba(13, 13, 17, 0) 84%
+  );
+}
+.veil-local > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Small viewports: the field is already thinned by the device budget in
+   the engine, and the grounds go further toward opaque. Nothing on a
+   phone should ever be competing with a moving line. */
+@media (max-width: 767px) {
+  .surface-veil::before {
+    inset: -12% 0;
+    background: radial-gradient(
+      ellipse 96% 74% at 50% 50%,
+      rgba(13, 13, 17, 0.97) 0%,
+      rgba(13, 13, 17, 0.9) 55%,
+      rgba(13, 13, 17, 0) 92%
+    );
+  }
+  .surface-wash::before {
+    background: linear-gradient(
+      180deg,
+      rgba(13, 13, 17, 0.96) 0%,
+      rgba(13, 13, 17, 0.92) 70%,
+      rgba(13, 13, 17, 0.7) 100%
+    );
+  }
+  .veil-local::before {
+    inset: -1.25rem 0;
+    background: radial-gradient(
+      ellipse 98% 78% at 50% 50%,
+      rgba(13, 13, 17, 0.96) 0%,
+      rgba(13, 13, 17, 0.88) 58%,
+      rgba(13, 13, 17, 0) 94%
+    );
   }
 }

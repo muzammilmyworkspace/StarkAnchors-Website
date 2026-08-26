@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Reveal } from "@/components/motion/Reveal";
 
@@ -12,8 +13,8 @@ import { Reveal } from "@/components/motion/Reveal";
  */
 export function AboutHero() {
   return (
-    <section className="pb-[var(--section-y-tight)] pt-36 lg:pt-48" aria-labelledby="about-title">
-      <div className="shell">
+    <section className="surface-veil relative pb-[var(--section-y-tight)] pt-36 lg:pt-48" aria-labelledby="about-title">
+      <div className="shell relative z-[1]">
         <SectionLabel index="00">About</SectionLabel>
 
         <Reveal>
@@ -22,6 +23,39 @@ export function AboutHero() {
             <br />
             <span className="text-titanium-ghost">Driven by data.</span>
           </h1>
+        </Reveal>
+
+        {/* The one photograph on this page. Concrete stair geometry —
+            a foundation, shot as structure. It sits full-bleed under the
+            headline rather than beside it, so the page opens with type,
+            then material, then argument. */}
+        <Reveal variant="fade">
+          <figure className="relative mt-14 lg:mt-20">
+            <div className="relative aspect-[21/9] w-full overflow-hidden">
+              <Image
+                src="/images/foundation.webp"
+                alt="Cast concrete stairs and wall, lit from one side — a structure photographed as a foundation."
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 1400px"
+                className="object-cover"
+              />
+              <div
+                aria-hidden
+                className="absolute inset-0"
+                style={{
+                  background:
+                    "linear-gradient(180deg, rgba(13,13,17,0.3) 0%, rgba(13,13,17,0.1) 40%, rgba(13,13,17,0.92) 100%)",
+                }}
+              />
+              <span aria-hidden className="tick" style={{ left: "-3px", top: "-3px" }} />
+              <span
+                aria-hidden
+                className="tick"
+                style={{ right: "-3px", bottom: "-3px" }}
+              />
+            </div>
+          </figure>
         </Reveal>
 
         <div className="rule-strong mt-14 lg:mt-20" />

@@ -16,7 +16,7 @@ import { thesis } from "@/data/pillars";
  */
 export function EngineeringThesis() {
   return (
-    <Section id="thesis" rule labelledBy="thesis-title">
+    <Section surface="veil" id="thesis" rule labelledBy="thesis-title">
       <div className="grid-12">
         {/* Margin label */}
         <div className="col-span-12 lg:col-span-3">
@@ -32,7 +32,7 @@ export function EngineeringThesis() {
         {/* Argument */}
         <div className="col-span-12 mt-10 lg:col-span-8 lg:col-start-5 lg:mt-0">
           <Reveal>
-            <p className="t-statement max-w-[26ch] text-titanium lg:max-w-[22ch]">
+            <p className="t-lead max-w-[26ch] text-titanium lg:max-w-[22ch]">
               {thesis.statement}
             </p>
           </Reveal>

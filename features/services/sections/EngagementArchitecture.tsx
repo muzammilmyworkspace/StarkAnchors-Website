@@ -7,7 +7,7 @@ export function EngagementArchitecture() {
   return (
     <Section
       id="architecture"
-      tone="slate"
+      surface="plate"
       className="border-b border-line"
       labelledBy="architecture-title"
     >

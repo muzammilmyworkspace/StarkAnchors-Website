@@ -1,3 +1,4 @@
+import { ActionLink } from "@/components/ui/Action";
 import { Section } from "@/components/layout/Section";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Reveal } from "@/components/motion/Reveal";
@@ -14,7 +15,7 @@ import { LeakageInstrument } from "../components/LeakageInstrument";
  */
 export function RevenueLeakage() {
   return (
-    <Section id="diagnosis" rule labelledBy="leakage-title">
+    <Section surface="veil" id="diagnosis" rule labelledBy="leakage-title">
       <div className="grid-12">
         <div className="col-span-12 lg:col-span-7">
           <SectionLabel index="01">Diagnosis</SectionLabel>
@@ -39,6 +40,16 @@ export function RevenueLeakage() {
 
       <div className="mt-16 lg:mt-24">
         <LeakageInstrument />
+      </div>
+
+      <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
+        <p className="t-body-s max-w-[46ch]">
+          Think there is a structural leak in your funnel? The diagnostic produces
+          your own curve, with the evidence attached.
+        </p>
+        <ActionLink href="/diagnostic" variant="inline">
+          Find your leakage
+        </ActionLink>
       </div>
     </Section>
   );

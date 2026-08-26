@@ -1,3 +1,4 @@
+import { ActionLink } from "@/components/ui/Action";
 import { Section } from "@/components/layout/Section";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Reveal } from "@/components/motion/Reveal";
@@ -16,7 +17,7 @@ export function PipelineArchitecture() {
   return (
     <Section
       id="pipeline"
-      tone="slate"
+      surface="plate"
       className="border-y border-line"
       labelledBy="pipeline-title"
     >
@@ -45,6 +46,12 @@ export function PipelineArchitecture() {
 
       <div className="mt-16 lg:mt-24">
         <PipelineDiagram />
+      </div>
+
+      <div className="mt-12">
+        <ActionLink href="/services" variant="inline">
+          Explore your infrastructure
+        </ActionLink>
       </div>
     </Section>
   );

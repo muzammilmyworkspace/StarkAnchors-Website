@@ -63,8 +63,56 @@ export type ComparisonRow = {
 export type Pillar = {
   numeral: string;
   title: string;
+  /** The principle stated in one line. */
   principle: string;
+  /** The full argument. Used at length on the About page. */
   body: string;
+  /** Concrete things the principle makes us do. */
+  signals: string[];
+  /** Where a reader who recognises themselves in this should go next. */
+  cta: { label: string; href: string };
+};
+
+export type ServiceIconName =
+  | "website" | "landingPage" | "dashboard"
+  | "targeting" | "search" | "video" | "professional"
+  | "broadcast" | "editorial"
+  | "workflow" | "intelligence" | "records" | "qualify" | "message"
+  | "telemetry" | "attribution" | "leakage" | "audit";
+
+export type SocialPlatform = "linkedin" | "instagram" | "facebook" | "youtube";
+
+/** A single deliverable inside a capability category. */
+export type Capability = {
+  id: string;
+  name: string;
+  icon: ServiceIconName;
+  /** One line a buyer can recognise their own need in. */
+  summary: string;
+  /** Concrete scope. Work performed, not benefits promised. */
+  scope: string[];
+};
+
+/** A group of related capabilities, positioned as one system. */
+export type CapabilityCategory = {
+  id: string;
+  index: string;
+  /** The positioning name, e.g. "Digital Experience Engineering". */
+  name: string;
+  /** The plain-language name, so nobody has to decode the positioning. */
+  plain: string;
+  thesis: string;
+  body: string;
+  capabilities: Capability[];
+  cta: { label: string; href: string };
+};
+
+/** A problem stated the way a client would say it, and what answers it. */
+export type ProblemRoute = {
+  id: string;
+  problem: string;
+  answer: string;
+  href: string;
 };
 
 export type ServiceSystem = {

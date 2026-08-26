@@ -38,7 +38,7 @@ export default function EngineeringLogsPage() {
                 <h1 id="logs-title" className="t-display-xl max-w-[11ch]">
                   Engineering Logs
                 </h1>
-                <p className="t-statement mt-8 max-w-[30ch] text-titanium-dim">
+                <p className="t-lead mt-8 max-w-[30ch] text-titanium-dim">
                   Field notes from the infrastructure layer.
                 </p>
               </Reveal>

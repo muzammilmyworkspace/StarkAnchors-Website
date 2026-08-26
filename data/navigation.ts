@@ -10,7 +10,7 @@ export const primaryNav: NavItem[] = [
     label: "Systems",
     href: "/services",
     index: "01",
-    description: "Three interconnected engineering systems",
+    description: "Websites, acquisition, automation, AI and data",
   },
   {
     label: "About",
@@ -37,29 +37,45 @@ export const primaryAction = {
   href: "/diagnostic",
 } as const;
 
+/**
+ * Footer index.
+ *
+ * "Systems" lists what a visitor would actually search for — websites,
+ * ads, dashboards — rather than the positioning names. The footer is
+ * where someone goes when the navigation did not answer their question,
+ * so it is the wrong place to make them decode anything.
+ */
 export const footerNav: { title: string; items: NavItem[] }[] = [
   {
     title: "Systems",
     items: [
-      { label: "Revenue Pipeline Engineering", href: "/services#revenue-pipeline", index: "01", description: "" },
-      { label: "Business Operation Automation", href: "/services#operation-automation", index: "02", description: "" },
-      { label: "Data Telemetry & Audits", href: "/services#telemetry-audits", index: "03", description: "" },
+      { label: "Website Development", href: "/services#digital-experience", index: "01", description: "" },
+      { label: "Landing Pages", href: "/services#digital-experience", index: "02", description: "" },
+      { label: "Dashboards", href: "/services#digital-experience", index: "03", description: "" },
+      { label: "Meta & Google Ads", href: "/services#acquisition", index: "04", description: "" },
+      { label: "YouTube & LinkedIn Ads", href: "/services#acquisition", index: "05", description: "" },
+      { label: "Social Presence", href: "/services#social-presence", index: "06", description: "" },
+      { label: "Automation & AI", href: "/services#automation-ai", index: "07", description: "" },
+      { label: "Data & Attribution", href: "/services#data-conversion", index: "08", description: "" },
     ],
   },
   {
     title: "Company",
     items: [
       { label: "About", href: "/about", index: "01", description: "" },
-      { label: "Engineering Thesis", href: "/about#thesis", index: "02", description: "" },
-      { label: "Principles", href: "/about#principles", index: "03", description: "" },
-      { label: "Pricing", href: "/pricing", index: "04", description: "" },
+      { label: "Services", href: "/services", index: "02", description: "" },
+      { label: "Pricing", href: "/pricing", index: "03", description: "" },
+      { label: "Engineering Logs", href: "/engineering-logs", index: "04", description: "" },
+      { label: "Diagnostic Portal", href: "/diagnostic", index: "05", description: "" },
     ],
   },
   {
-    title: "Signal",
+    title: "Thinking",
     items: [
-      { label: "Engineering Logs", href: "/engineering-logs", index: "01", description: "" },
-      { label: "System Diagnostic", href: "/diagnostic", index: "02", description: "" },
+      { label: "Engineering Thesis", href: "/about#thesis", index: "01", description: "" },
+      { label: "Principles", href: "/about#principles", index: "02", description: "" },
+      { label: "How We Diagnose", href: "/#diagnosis", index: "03", description: "" },
+      { label: "The Pipeline", href: "/#pipeline", index: "04", description: "" },
     ],
   },
 ];

@@ -159,7 +159,7 @@ export function ArchitectureStepper() {
               <span className="text-laser">{stage.index}</span>
             </p>
             <h3 className="t-display-m mt-4 text-titanium">{stage.name}</h3>
-            <p className="t-statement mt-4 max-w-[26ch] text-titanium-dim">
+            <p className="t-lead mt-4 max-w-[26ch] text-titanium-dim">
               {stage.summary}
             </p>
           </div>

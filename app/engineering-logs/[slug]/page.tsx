@@ -111,7 +111,7 @@ export default async function LogPage({ params }: PageProps) {
 
               <h1 className="t-display-l mt-8 max-w-[18ch]">{entry.title}</h1>
 
-              <p className="t-statement mt-7 max-w-[44ch] text-titanium-dim">
+              <p className="t-lead mt-7 max-w-[44ch] text-titanium-dim">
                 {entry.summary}
               </p>
             </div>

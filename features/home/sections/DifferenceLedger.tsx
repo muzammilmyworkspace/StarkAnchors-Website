@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import { ActionLink } from "@/components/ui/Action";
 import { Section } from "@/components/layout/Section";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal";
@@ -20,13 +21,13 @@ import { toIndex } from "@/lib/utils/format";
  */
 export function DifferenceLedger() {
   return (
-    <Section id="difference" rule labelledBy="difference-title">
+    <Section surface="veil" id="difference" rule labelledBy="difference-title">
       <div className="grid-12">
         <div className="col-span-12 lg:col-span-6">
-          <SectionLabel index="04">Difference</SectionLabel>
+          <SectionLabel index="06">Difference</SectionLabel>
           <Reveal>
-            <h2 id="difference-title" className="t-display-l mt-7 max-w-[13ch]">
-              Two operating models.
+            <h2 id="difference-title" className="t-display-l mt-7 max-w-[16ch]">
+              We don’t start with the channel. We start with the system.
             </h2>
           </Reveal>
         </div>
@@ -84,6 +85,40 @@ export function DifferenceLedger() {
         <div className="border-x border-t border-line" />
         <div className="border-t border-line" />
       </RevealGroup>
+
+      {/* The practice, stated as verbs. Six words that describe the order
+          of operations, set as a full-width readout rather than another
+          paragraph — it is a sequence, so it is typeset as one. */}
+      <RevealGroup
+        as="ol"
+        className="mt-14 hidden grid-cols-6 border-t border-line md:grid lg:mt-20"
+        step={0.05}
+      >
+        {["Diagnose", "Architect", "Integrate", "Measure", "Optimise", "Improve"].map(
+          (verb, index) => (
+            <RevealItem
+              key={verb}
+              as="li"
+              className="border-l border-line px-4 py-6 first:border-l-0 first:pl-0"
+            >
+              <span className="t-meta-sm text-titanium-faint">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <span className="t-display-s mt-3 block text-titanium">{verb}</span>
+            </RevealItem>
+          ),
+        )}
+      </RevealGroup>
+
+      <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
+        <p className="t-body-s max-w-[44ch]">
+          Execution without the first two steps is just activity that happens to be
+          billable.
+        </p>
+        <ActionLink href="/about#thesis" variant="inline">
+          Understand how we work
+        </ActionLink>
+      </div>
 
       {/* Mobile: two stacked registers */}
       <div className="mt-14 space-y-12 md:hidden">

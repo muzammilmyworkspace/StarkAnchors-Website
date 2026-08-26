@@ -1,51 +1,113 @@
 import Link from "next/link";
 import { Logotype } from "@/components/branding/Logotype";
+import { ActionLink } from "@/components/ui/Action";
+import { SocialIcon } from "@/components/ui/SocialIcon";
 import { footerNav } from "@/data/navigation";
-import { site, systemSequence } from "@/data/site";
+import { contactPrompt, site, socialProfiles, systemSequence } from "@/data/site";
 
 /**
- * The footer is a specification sheet, not a sitemap with a newsletter
- * box bolted to it.
+ * The footer is a specification sheet and a final console, not a sitemap
+ * with a newsletter box bolted to it.
  *
- * Three bands:
- *   1  identity and the direct channel
- *   2  the index, in three structural columns
+ * Four bands:
+ *   1  the closing prompt, with the one action and both direct channels
+ *   2  identity, the index, and social
  *   3  the conceptual sequence, full-bleed, as a terminal readout
+ *   4  colophon
  *
- * The year is fixed rather than computed from `Date.now()` so the
- * server and client render identical markup. It is updated at release.
+ * Social icons render only for profiles that actually exist. A link to a
+ * guessed URL is worse than no link, and `socialProfiles` in data/site.ts
+ * is where a real one gets switched on.
+ *
+ * The year is fixed rather than computed from `Date.now()` so the server
+ * and client render identical markup. It is updated at release.
  */
 const COPYRIGHT_YEAR = 2026;
 
 export function Footer() {
+  const liveSocial = socialProfiles.filter((profile) => profile.href);
+
   return (
     <footer className="relative z-[var(--z-raised)] mt-auto border-t border-line bg-obsidian-deep">
-      <div className="shell">
-        <div className="grid gap-12 py-[var(--space-9)] lg:grid-cols-12 lg:gap-8">
-          {/* Identity */}
-          <div className="lg:col-span-5">
-            <Logotype />
-            <p className="t-body-s mt-6 max-w-xs">{site.shortDescription}</p>
-
-            <div className="mt-8">
-              <p className="t-meta-sm">Direct Channel</p>
-              <a
-                href={`mailto:${site.email}`}
-                className="t-mono mt-2 inline-block text-titanium transition-colors hover:text-laser"
-              >
-                {site.email}
-              </a>
-            </div>
+      {/* 1 — The prompt */}
+      <div className="shell border-b border-line py-[var(--space-9)]">
+        <div className="grid-12">
+          <div className="col-span-12 lg:col-span-6">
+            <h2 className="t-display-m max-w-[16ch] text-titanium">
+              {contactPrompt.headline}
+            </h2>
+            <p className="t-lead mt-6 max-w-[44ch]">{contactPrompt.body}</p>
           </div>
 
-          {/* Index */}
-          <div className="grid gap-10 sm:grid-cols-3 lg:col-span-7 lg:gap-8">
+          <div className="col-span-12 mt-10 lg:col-span-5 lg:col-start-8 lg:mt-0 lg:self-end">
+            <ActionLink href="/diagnostic">{contactPrompt.action}</ActionLink>
+
+            <dl className="mt-9 border-t border-line">
+              <div className="flex flex-col gap-1 border-b border-line py-4 sm:flex-row sm:items-baseline sm:gap-6">
+                <dt className="t-meta-sm w-20 shrink-0 text-titanium-faint">Email</dt>
+                <dd>
+                  <a
+                    href={`mailto:${site.email}`}
+                    className="t-mono text-titanium transition-colors hover:text-laser"
+                  >
+                    {site.email}
+                  </a>
+                </dd>
+              </div>
+              <div className="flex flex-col gap-1 py-4 sm:flex-row sm:items-baseline sm:gap-6">
+                <dt className="t-meta-sm w-20 shrink-0 text-titanium-faint">Phone</dt>
+                <dd>
+                  <a
+                    href={`tel:${site.phone}`}
+                    className="t-mono text-titanium transition-colors hover:text-laser"
+                  >
+                    {site.phoneDisplay}
+                  </a>
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </div>
+
+      {/* 2 — Identity and index */}
+      <div className="shell">
+        <div className="grid gap-12 py-[var(--space-9)] lg:grid-cols-12 lg:gap-8">
+          <div className="lg:col-span-4">
+            <Logotype />
+            <p className="t-body-s mt-6 max-w-xs">
+              Systems engineering for the next generation of business.
+            </p>
+
+            {liveSocial.length > 0 && (
+              <div className="mt-8">
+                <p className="t-meta-sm text-titanium-faint">Connect</p>
+                <ul className="mt-4 flex items-center gap-3">
+                  {liveSocial.map((profile) => (
+                    <li key={profile.platform}>
+                      <a
+                        href={profile.href as string}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${site.name} on ${profile.label}`}
+                        className="flex h-10 w-10 items-center justify-center border border-line text-titanium-dim transition-colors hover:border-line-bright hover:text-laser"
+                      >
+                        <SocialIcon platform={profile.platform} />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+
+          <div className="grid gap-10 sm:grid-cols-3 lg:col-span-8 lg:gap-8">
             {footerNav.map((group) => (
               <nav key={group.title} aria-label={group.title}>
                 <p className="t-meta-sm border-b border-line pb-3 text-titanium-faint">
                   {group.title}
                 </p>
-                <ul className="mt-4 space-y-3">
+                <ul className="mt-4 space-y-2.5">
                   {group.items.map((item) => (
                     <li key={item.href + item.label}>
                       <Link
@@ -63,12 +125,7 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Sequence — the conceptual spine, stated once, at the bottom of
-          the building.
-
-          It wraps rather than scrolling horizontally. A horizontal
-          scroll container puts content behind a gesture a keyboard user
-          cannot perform, and eight short words wrap perfectly well. */}
+      {/* 3 — Sequence */}
       <div className="border-t border-line">
         <div className="shell">
           <ul
@@ -87,7 +144,7 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Colophon */}
+      {/* 4 — Colophon */}
       <div className="border-t border-line">
         <div className="shell flex flex-col gap-3 py-5 sm:flex-row sm:items-center sm:justify-between">
           <p className="t-meta-sm">
@@ -100,7 +157,7 @@ export function Footer() {
               style={{ animation: "sa-respire 3.6s ease-in-out infinite" }}
             />
             <span>
-              System <span className="t-faint">/</span> Operational
+              System <span className="text-titanium-ghost">/</span> Operational
             </span>
           </p>
         </div>

@@ -22,7 +22,7 @@ export function MissionVision() {
   return (
     <Section
       id="mandate"
-      tone="slate"
+      surface="band"
       className="border-y border-line"
       labelledBy="mandate-title"
     >
@@ -44,7 +44,7 @@ export function MissionVision() {
 
             <div className="col-span-12 mt-6 lg:col-span-9 lg:col-start-4 lg:mt-0">
               <Reveal>
-                <p className="t-statement text-titanium">{statement.body}</p>
+                <p className="t-lead text-titanium">{statement.body}</p>
               </Reveal>
             </div>
           </div>

@@ -134,7 +134,7 @@ export function DiagnosticPortal() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: EASE_OUT }}
         role="status"
-        className="border-t border-line pt-12"
+        className="form-surface p-7 lg:p-10"
       >
         <div className="flex items-center gap-3">
           <span aria-hidden className="text-laser">
@@ -176,8 +176,11 @@ export function DiagnosticPortal() {
         </div>
       </div>
 
-      <div className="col-span-12 mt-10 lg:col-span-6 lg:col-start-5 lg:mt-0">
-        <form onSubmit={onSubmit} noValidate>
+      <div className="col-span-12 mt-10 lg:col-span-8 lg:col-start-5 lg:mt-0">
+        {/* The form gets an explicit panel. It is the one place on the site
+            where a visitor has to do sustained work, and an edgeless veil
+            is not enough ground for that. */}
+        <form onSubmit={onSubmit} noValidate className="form-surface p-7 lg:p-10">
           {/* Honeypot. Off-screen rather than display:none, because some
               bots skip hidden inputs but not positioned ones. */}
           <div aria-hidden className="absolute left-[-9999px] top-0 h-px w-px overflow-hidden">

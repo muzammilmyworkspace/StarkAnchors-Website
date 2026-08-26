@@ -5,6 +5,8 @@ Digital headquarters for **Stark Anchors** — business systems engineering.
 Next.js 16 (App Router) · React 19 · TypeScript (strict) · Tailwind v4 · Framer Motion.
 Seven routes, all statically generated except the diagnostic intake endpoint.
 
+Contact: info@starkanchors.com · +92 318 5073407
+
 ```bash
 npm install
 npm run dev        # http://localhost:3000
@@ -72,18 +74,87 @@ lib/
   utils/  fonts.ts
 
 data/                     ALL copy and content. No strings in components.
+  capabilities.ts         5 categories, 18 capabilities, problem routes
+  pillars.ts              the six principles, with signals and CTAs
+  site.ts                 identity, contact, social config
 hooks/                    useCanvasStage, useMediaQuery, useReducedMotion
 styles/                   tokens · typography · utilities · boot
 types/                    the content contracts
 ```
 
-Content lives in `data/` and nowhere else. Adding a service, a log entry,
-a pricing tier or a form field is a data edit — the interface, the
+Content lives in `data/` and nowhere else. Adding a capability, a log
+entry, a pricing tier or a form field is a data edit — the interface, the
 validation and the payload follow from it.
+
+### The home page flow
+
+Deliberately a conversion journey rather than a feature list:
+
+```
+Hero          → what we do, in one statement
+Status        → the environment declares itself
+Capabilities  → what we build; answers "can you do X?" without a click
+Application   → how it applies to me, in the visitor's own words
+Diagnosis     → the problem, made visible as an instrument
+Methodology   → how we approach it
+Pipeline      → the architecture that results
+Principles    → who we are — the trust beat
+Difference    → why the order of operations matters
+Logs          → evidence of thinking
+Closing       → one action
+```
+
+Every major section ends in one CTA that follows from what was just read
+— "find your leakage", "see how we diagnose", "explore your
+infrastructure" — rather than a repeated "contact us". Those are the
+micro-conversions; the diagnostic is the only hard ask.
+
+The six principles appear twice by design and at two depths: condensed on
+the home page as the trust beat, in full on About with the argument, the
+signals and a CTA per principle. One component, `ValuesArchitecture`,
+serves the long version.
 
 ---
 
-## 3 · Design system
+## 3 · Readability, and the layer that buys it
+
+The field is part of the identity and stays. But a live network running
+underneath a paragraph is a readability tax, so every text-bearing
+section sits on a **ground** that calms the area behind the words while
+leaving the network visible around them.
+
+Background = live system environment. Content = focused information window.
+
+There are five grounds, and they look different on purpose — wrapping
+every section in the same translucent card is the fastest route to a page
+that looks generated:
+
+| Ground | Technique | Used for |
+|---|---|---|
+| `veil` | edgeless radial darkening | most prose sections |
+| `wash` | directional fade, opaque on one side | split compositions |
+| `band` | translucent slate stratum, hairlines top and bottom | mission / vision |
+| `plate` | near-solid slate | the technical exhibits |
+| `well` | recessed | beneath-the-page sections |
+
+Set per section via `<Section surface="veil">`. Under 768px the grounds go
+further toward opaque, because nothing on a phone should be competing with
+a moving line.
+
+**Typography follows one rule: display type is for headlines, Inter is for
+sentences.** `t-statement` used to set multi-sentence prose in Cabinet
+Grotesk; it is now `t-lead`, in Inter. Body sizes are up across the board,
+mono tracking came down from 0.16em to 0.11em, and the whole ink scale was
+brightened (see below).
+
+A note on hairlines: they are structural, not decorative. A rule under
+every list item stops reading as structure and starts reading as noise, so
+scope and specification lists are separated by a leading tick and spacing
+instead.
+
+---
+
+## 4 · Design system
 
 Tokens are in `styles/tokens.css` and bridged into Tailwind by the
 `@theme` block in `app/globals.css`. Do not introduce a raw colour,
@@ -96,19 +167,48 @@ duration or radius anywhere else.
 | `--obsidian` | `#0D0D11` | ~90% of every surface |
 | `--slate` | `#1C1D24` | structural panels, the two tonal bands |
 | `--titanium` | `#E2E8F0` | primary text — 15.7:1 |
-| `--titanium-dim` | `#9AA3B5` | body copy — 7.7:1 |
-| `--titanium-faint` | `#828A9A` | meta labels — 5.6:1 |
-| `--titanium-ghost` | `#656D7D` | **display type only** — 3.7:1 |
+| `--titanium-dim` | `#AEB6C6` | body copy — 9.5:1 |
+| `--titanium-faint` | `#949CAC` | meta labels — 7.0:1 |
+| `--titanium-ghost` | `#727A8A` | **display type only** — 4.5:1 |
 | `--laser` | `#00E5FF` | telemetry, active state, focus — 12.6:1 |
 
-`--titanium-ghost` clears the WCAG large-text threshold (3:1) but not the
-normal-text one. It is for headlines, numerals and marks. Small text uses
-`faint` or brighter. `.t-display-s` has a 20px minimum specifically so
-ghost ink stays legal on it — do not lower it.
+`--titanium-ghost` clears the WCAG large-text threshold comfortably but sits
+right on the normal-text one. It is for headlines, numerals and marks.
+Small text uses `faint` or brighter. `.t-display-s` has a 20px minimum
+specifically so ghost ink stays legal on it — do not lower it.
 
-Laser blue is budgeted, not decorative. It appears on the home page in
-single figures: the hero rule, active diagram nodes, packets in transit,
-the terminal of the pipeline, focus rings.
+Laser blue is budgeted, not decorative: the hero rule, active diagram
+nodes, packets in transit, the terminal of a pipeline, focus rings. If it
+starts appearing because a thing looks nicer with it, the budget is gone.
+
+### Iconography
+
+`components/ui/ServiceIcon.tsx` — eighteen icons, drawn here rather than
+pulled from a library. Every general-purpose set (Lucide, Feather,
+Heroicons) is built on round caps and round joins; this brand has no curves
+anywhere, so a rounded set would read as borrowed. These are built from the
+same vocabulary as the mark: squares, diamonds, hairlines, 45° diagonals,
+24-unit grid, square caps.
+
+`components/ui/SocialIcon.tsx` — the four platform marks, used **only** in
+the footer where they function as links to those platforms. The advertising
+*services* (Meta, Google, YouTube, LinkedIn) use this project's own
+technical icons instead, so no trademark is reproduced decoratively.
+
+### Imagery
+
+Three photographs, in `public/images`, each with a purpose: a foundation
+(About), infrastructure (Services), operations (Automation). All CC0 1.0 —
+provenance recorded in `public/images/CREDITS.json`.
+
+They are **art-directed, not dropped in**: desaturated, levelled into a
+compressed tonal range and duotoned to the titanium/slate cast by
+`qa-tools/process-images.js`, so they read as part of the environment
+rather than as stock on a dark page. Served through `next/image` (WebP,
+responsive, lazy except the About hero) and always under a gradient that
+grounds them into the page.
+
+To swap one, drop a file with the same name into `public/images`.
 
 ### Structure
 
@@ -133,7 +233,7 @@ rhythm instead of a component rhythm.
 
 ---
 
-## 4 · The background system
+## 5 · The background system
 
 `lib/field/engine.ts` is a single canvas engine, parameterised per route.
 It is not a particle system: nodes sit on a jittered structural lattice,
@@ -169,7 +269,7 @@ over the negative layer.
 
 ---
 
-## 5 · Motion
+## 6 · Motion
 
 Every animation resolves to a preset in `lib/animations/presets.ts`. One
 signature curve (`cubic-bezier(0.16, 1, 0.3, 1)`), no springs on entrances,
@@ -192,7 +292,7 @@ composed with `prefers-reduced-motion: reduce`.
 
 ---
 
-## 6 · The diagnostic intake
+## 7 · The diagnostic intake
 
 `app/api/diagnostic/route.ts` validates with the same module the form uses
 (`lib/diagnostic/validate.ts`) — the client is never trusted — then:
@@ -210,12 +310,13 @@ Copy `.env.example` to `.env.local` to connect a destination.
 
 ---
 
-## 7 · Verification
+## 8 · Verification
 
 Run against `npm run build && npm start`.
 
 **Accessibility — axe-core, WCAG 2.1 A + AA, 8 routes × desktop and
-mobile: 0 violations.** Keyboard paths verified by script: form step
+mobile: 0 violations.** Re-verified after the readability revision.
+Keyboard paths verified by script: form step
 validation and focus movement, back-navigation state, the architecture
 stepper's roving tabindex (Arrow/Home/End), and the mobile navigation's
 modal semantics, focus trap, scroll lock and Escape handling.
@@ -224,15 +325,18 @@ modal semantics, focus trap, scroll lock and Escape handling.
 
 | | |
 |---|---|
-| Total transfer | ~360KB (JS 211KB, fonts 128KB, CSS 9.5KB) |
-| FCP | 240–280ms |
-| LCP | 0.3–1.9s (home is highest — the once-per-session boot) |
-| CLS | 0.0002 |
+| Total transfer | ~380KB (JS 233KB, fonts 128KB, CSS 10KB, images 0–175KB) |
+| FCP | 248–344ms |
+| LCP | 0.9–2.0s (home is highest — the once-per-session boot) |
+| CLS | 0.0001–0.0002 |
 
-CSS is 9.5KB gzipped for the whole design system. Static assets are served
-`immutable` for a year. No horizontal overflow at 390px or 1512px.
+CSS is 10KB gzipped for the whole design system. Static assets are cached
+immutably for a year. No horizontal overflow at 360px, 390px, 768px or
+1512px on any route — a regression there is worth watching for, because a
+pseudo-element that overflows horizontally silently widens the mobile
+layout viewport and drags every fixed element off-screen with it.
 
-Known headroom: JS is ~40KB above the ideal mobile budget, effectively all
+Known headroom: JS is ~60KB above the ideal mobile budget, effectively all
 of it Framer Motion. Moving to `LazyMotion` + `domAnimation` and `m.*`
 components would recover an estimated 25–35KB gzipped; it was not done here
 because it touches ~20 components and all Core Web Vitals are already in
@@ -246,7 +350,7 @@ flash of overlay on an internal navigation. To disable it, drop
 
 ---
 
-## 8 · Brand assets
+## 9 · Brand assets
 
 `public/brand/` — symbol in titanium, obsidian, monochrome and
 signal-active variants, plus the horizontal lockup for light and dark
@@ -265,7 +369,7 @@ context without the webfont, outline the wordmark in a vector editor.
 
 ---
 
-## 9 · Conventions
+## 10 · Conventions
 
 - `PascalCase.tsx` components, `camelCase.ts` utilities, Next.js route
   conventions for `app/`.

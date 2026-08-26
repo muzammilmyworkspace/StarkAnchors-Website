@@ -1,3 +1,4 @@
+import { ActionLink } from "@/components/ui/Action";
 import { Section } from "@/components/layout/Section";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal";
@@ -18,7 +19,7 @@ import { methodology } from "@/data/methodology";
  */
 export function DebuggingMethodology() {
   return (
-    <Section id="methodology" rule labelledBy="methodology-title">
+    <Section surface="veil" id="methodology" rule labelledBy="methodology-title">
       <div className="grid-12">
         <div className="col-span-12 lg:col-span-6">
           <SectionLabel index="02">Methodology</SectionLabel>
@@ -94,6 +95,12 @@ export function DebuggingMethodology() {
             </div>
           </article>
         ))}
+      </div>
+
+      <div className="mt-12">
+        <ActionLink href="/diagnostic" variant="inline">
+          See how we diagnose
+        </ActionLink>
       </div>
     </Section>
   );

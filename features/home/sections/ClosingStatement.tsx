@@ -18,6 +18,7 @@ import { positioning } from "@/data/site";
 export function ClosingStatement() {
   return (
     <Section
+      surface="veil"
       id="engage"
       rule
       className="pb-[var(--space-11)]"
