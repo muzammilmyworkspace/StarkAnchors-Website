@@ -1,0 +1,215 @@
+/* ============================================================
+   STARK ANCHORS — TYPOGRAPHY
+   Typography carries the authority. Motion does not.
+   ============================================================ */
+
+/* --- DISPLAY -------------------------------------------------
+   Cabinet Grotesk. Tight tracking, sub-1.0 leading, heavy weight.
+   These are structural objects, not "headings with animation". */
+
+.t-display-xl {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.6rem, 7.4vw, 6.75rem);
+  line-height: 0.9;
+  letter-spacing: -0.038em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.t-display-l {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.1rem, 5.1vw, 4.25rem);
+  line-height: 0.94;
+  letter-spacing: -0.032em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.t-display-m {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.65rem, 3.1vw, 2.6rem);
+  line-height: 1.02;
+  letter-spacing: -0.024em;
+  text-transform: uppercase;
+}
+
+/* Minimum is 20px on purpose: at 700 weight that clears the WCAG
+   large-text threshold (14pt bold), which lets recessive ghost ink be
+   used here at 3:1 instead of 4.5:1. Do not lower it. */
+.t-display-s {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.25rem, 1.7vw, 1.5rem);
+  line-height: 1.14;
+  letter-spacing: -0.012em;
+  text-transform: uppercase;
+}
+
+/* Editorial serif-free pull quote: sentence case, looser, lighter. */
+.t-statement {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.35rem, 2.5vw, 2.1rem);
+  line-height: 1.24;
+  letter-spacing: -0.018em;
+  text-wrap: pretty;
+}
+
+/* --- NUMERALS ------------------------------------------------
+   Index numbers are structure, not ornament. Ghosted by default. */
+.t-numeral {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  line-height: 0.8;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+  color: var(--titanium-ghost);
+}
+
+.t-numeral-sm {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  line-height: 0.85;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- BODY ---------------------------------------------------- */
+.t-body-l {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.15vw, 1.1875rem);
+  line-height: 1.62;
+  letter-spacing: -0.005em;
+  color: var(--titanium-dim);
+  text-wrap: pretty;
+}
+
+.t-body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.68;
+  letter-spacing: -0.003em;
+  color: var(--titanium-dim);
+  text-wrap: pretty;
+}
+
+.t-body-s {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  line-height: 1.62;
+  color: var(--titanium-faint);
+  text-wrap: pretty;
+}
+
+/* --- META ----------------------------------------------------
+   JetBrains Mono. System readouts, indices, labels.
+   Discovered details — never wallpaper. */
+.t-meta {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--titanium-faint);
+  font-variant-numeric: tabular-nums;
+}
+
+.t-meta-sm {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--titanium-faint);
+  font-variant-numeric: tabular-nums;
+}
+
+.t-mono {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- MODIFIERS ----------------------------------------------- */
+.t-faint { color: var(--titanium-faint); }
+
+/* --- PROSE (engineering log body) ---------------------------- */
+.prose-log {
+  font-family: var(--font-body);
+  color: var(--titanium-dim);
+  font-size: 1.0625rem;
+  line-height: 1.72;
+  letter-spacing: -0.004em;
+}
+.prose-log > * + * { margin-top: var(--space-5); }
+/* Measure is applied to the text elements rather than to the container,
+   so paragraphs read at ~68 characters while figures keep the full
+   width of the column and diagrams stay legible. */
+.prose-log > p,
+.prose-log > ul,
+.prose-log > blockquote,
+.prose-log > h2,
+.prose-log > h3 { max-width: var(--prose-max); }
+.prose-log h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.4rem, 2.2vw, 1.875rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--titanium);
+  margin-top: var(--space-9);
+  scroll-margin-top: 7rem;
+}
+.prose-log h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--titanium);
+  margin-top: var(--space-7);
+}
+.prose-log strong { color: var(--titanium); font-weight: 600; }
+.prose-log a {
+  color: var(--titanium);
+  text-decoration: underline;
+  text-underline-offset: 0.22em;
+  text-decoration-color: var(--laser-soft);
+  text-decoration-thickness: 1px;
+}
+.prose-log a:hover { color: var(--laser); }
+.prose-log ul { list-style: none; padding: 0; }
+.prose-log ul li {
+  position: relative;
+  padding-left: var(--space-5);
+  margin-top: var(--space-3);
+}
+.prose-log ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 10px;
+  height: var(--hairline);
+  background: var(--laser-soft);
+}
+.prose-log blockquote {
+  border-left: var(--hairline) solid var(--line-strong);
+  padding-left: var(--space-5);
+  color: var(--titanium);
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.2rem;
+  line-height: 1.32;
+  letter-spacing: -0.015em;
+}

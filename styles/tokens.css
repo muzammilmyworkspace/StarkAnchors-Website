@@ -1,0 +1,98 @@
+/* ============================================================
+   STARK ANCHORS — DESIGN TOKENS
+   Single source of truth. Never hard-code a raw value in a
+   component when a token exists for it.
+   ============================================================ */
+
+:root {
+  /* --- SURFACE ------------------------------------------------
+     90% obsidian / 5% slate / 5% chromium+laser. Hold the line. */
+  --obsidian: #0d0d11;
+  --obsidian-deep: #08080b;   /* recessed: footer, wells */
+  --slate: #1c1d24;           /* structural panels, modules */
+  --slate-raised: #23242d;    /* panel-on-panel, inputs */
+
+  /* --- INK ---------------------------------------------------- */
+  --titanium: #e2e8f0;        /* primary text */
+  --titanium-dim: #9aa3b5;    /* secondary text, supporting copy */
+  --titanium-faint: #828a9a;  /* tertiary, meta labels — 5.6:1 */
+  --titanium-ghost: #656d7d;  /* recessive DISPLAY type only — 3.7:1 */
+
+  /* --- SIGNAL -------------------------------------------------
+     Laser blue is telemetry, not decoration. Budget it. */
+  --laser: #00e5ff;
+  --laser-soft: rgba(0, 229, 255, 0.55);
+  --laser-wash: rgba(0, 229, 255, 0.06);
+
+  /* --- STRUCTURE ---------------------------------------------
+     Depth comes from hairlines and tone, never from shadow. */
+  --line-faint: rgba(226, 232, 240, 0.05);
+  --line: rgba(226, 232, 240, 0.09);
+  --line-strong: rgba(226, 232, 240, 0.16);
+  --line-bright: rgba(226, 232, 240, 0.28);
+  --hairline: 1px;
+
+  /* --- CHROMIUM GRADIENT -------------------------------------
+     Controlled areas only: active paths, selected states. */
+  --chromium: linear-gradient(90deg, var(--titanium) 0%, var(--laser) 100%);
+  --chromium-fade: linear-gradient(
+    90deg,
+    rgba(226, 232, 240, 0) 0%,
+    rgba(226, 232, 240, 0.5) 35%,
+    rgba(0, 229, 255, 0.9) 100%
+  );
+
+  /* --- STATUS (systemic, sparing) ----------------------------- */
+  --status-nominal: #6ee7b7;
+  --status-degraded: #f0b968;
+  --status-fault: #f0736a;
+
+  /* --- RADIUS -------------------------------------------------
+     Architecture is square. 2px exists only for input affordance. */
+  --radius-none: 0px;
+  --radius-sm: 2px;
+
+  /* --- LAYOUT ------------------------------------------------- */
+  --shell-max: 1560px;        /* outer frame incl. rails */
+  --prose-max: 68ch;
+  --gutter: clamp(1.25rem, 4.2vw, 4.5rem);
+
+  /* --- SPACE (4px base, non-linear at the top end) ------------ */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 2.5rem;
+  --space-8: 3.5rem;
+  --space-9: 5rem;
+  --space-10: 7rem;
+  --space-11: 9.5rem;
+  --section-y: clamp(5.5rem, 11vw, 10rem);
+  --section-y-tight: clamp(3.5rem, 7vw, 6rem);
+
+  /* --- MOTION -------------------------------------------------
+     Expensive motion: slow in, slower out, never bouncy. */
+  --dur-instant: 120ms;
+  --dur-fast: 220ms;
+  --dur-base: 380ms;
+  --dur-slow: 680ms;
+  --dur-glacial: 1200ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);      /* signature */
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-linear: cubic-bezier(0, 0, 1, 1);
+
+  /* --- Z-INDEX ------------------------------------------------ */
+  --z-behind: -1;
+  --z-base: 0;
+  --z-raised: 10;
+  --z-sticky: 40;
+  --z-header: 60;
+  --z-overlay: 80;
+  --z-signal: 90;
+  --z-boot: 100;
+}
+
+/* Breakpoints are declared here for documentation and mirrored in
+   the Tailwind theme. sm 640 / md 768 / lg 1024 / xl 1280 / 2xl 1536 */

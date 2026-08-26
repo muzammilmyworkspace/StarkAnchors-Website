@@ -1,0 +1,92 @@
+/* ============================================================
+   BOOT SEQUENCE
+   Front door only, once per session, 900ms, CSS-driven.
+
+   No JavaScript state and therefore no hydration flash: an inline
+   script in the document head stamps [data-booted] on <html> when the
+   session has already seen it, and the rules below simply remove the
+   overlay from the document when that attribute is present.
+
+   Anything longer than this is charging the visitor for a brand
+   moment they did not ask for.
+   ============================================================ */
+
+.boot {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-boot);
+  background: var(--obsidian);
+  display: flex;
+  align-items: flex-end;
+  animation: sa-boot-out 720ms var(--ease-out) forwards;
+}
+
+/* Already booted this session, or motion is not wanted: never render. */
+:root[data-booted] .boot {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .boot { display: none; }
+}
+
+.boot__inner {
+  width: 100%;
+  max-width: var(--shell-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  padding-bottom: clamp(3rem, 14vh, 8rem);
+}
+
+.boot__lockup {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--titanium);
+  opacity: 0;
+  animation: sa-boot-line 300ms var(--ease-out) 30ms forwards;
+}
+
+.boot__word {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.9375rem;
+  text-transform: uppercase;
+  letter-spacing: 0.055em;
+  line-height: 1;
+}
+
+/* The rule draws rather than appears — the same gesture the diagrams
+   use, introduced here before the visitor has seen one. */
+.boot__rule {
+  height: 1px;
+  margin-top: var(--space-5);
+  background: var(--chromium-fade);
+  transform-origin: left;
+  transform: scaleX(0);
+  animation: sa-boot-draw 460ms var(--ease-out) 90ms forwards;
+}
+
+.boot__readout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-6);
+  margin-top: var(--space-4);
+}
+
+.boot__readout li {
+  opacity: 0;
+  animation: sa-boot-line 300ms var(--ease-out) forwards;
+}
+.boot__readout li:nth-child(1) { animation-delay: 140ms; }
+.boot__readout li:nth-child(2) { animation-delay: 270ms; }
+.boot__readout li:nth-child(3) { animation-delay: 400ms; }
+
+@keyframes sa-boot-draw {
+  to { transform: scaleX(1); }
+}
+
+@keyframes sa-boot-out {
+  0%, 72% { opacity: 1; visibility: visible; }
+  100% { opacity: 0; visibility: hidden; pointer-events: none; }
+}
