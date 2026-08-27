@@ -181,6 +181,11 @@ Laser blue is budgeted, not decorative: the hero rule, active diagram
 nodes, packets in transit, the terminal of a pipeline, focus rings. If it
 starts appearing because a thing looks nicer with it, the budget is gone.
 
+The background field runs deliberately low — edge alpha 0.026–0.04, master
+intensity 0.48–0.72 depending on route. It is atmosphere, not content. If
+it ever competes with a paragraph, turn the field down rather than turning
+the text up.
+
 ### Iconography
 
 `components/ui/ServiceIcon.tsx` — eighteen icons, drawn here rather than
@@ -194,6 +199,25 @@ same vocabulary as the mark: squares, diamonds, hairlines, 45° diagonals,
 the footer where they function as links to those platforms. The advertising
 *services* (Meta, Google, YouTube, LinkedIn) use this project's own
 technical icons instead, so no trademark is reproduced decoratively.
+
+### SEO
+
+The copy is positioned, and positioning alone can make a site invisible
+for the words buyers actually type. Two things counter that without
+diluting the voice:
+
+- Every capability carries a **plain name** alongside its positioning name
+  — "Digital Experience Engineering / *Websites, landing pages and
+  dashboards*" — shown in the nav index, the footer, and the growth map,
+  where the short searchable form ("Websites", "Google Ads", "Dashboards")
+  is what actually appears.
+- `serviceCatalogSchema` declares all eighteen capabilities as a
+  schema.org `OfferCatalog`, and `faqSchema` publishes eight real buyer
+  questions as an `FAQPage`. Both are on `/services`, alongside
+  `Organization`, `WebSite` and `BreadcrumbList`.
+
+Metadata leads with the search terms and lets the brand line follow,
+rather than the other way round.
 
 ### Imagery
 
@@ -215,7 +239,9 @@ To swap one, drop a file with the same name into `public/images`.
 Radius is `0` everywhere except a 2px affordance on selectable inputs.
 There are no box-shadows in the project. Depth comes from hairlines
 (`--line*`), tone and negative space. Buttons do not glow; there are three
-of them (`solid`, `ghost`, `inline`) and no fourth.
+of them (`solid`, `ghost`, `inline`) and no fourth. They are set in Inter,
+not the mono face: wide-tracked uppercase mono reads as a system label, and
+a call to action needs to read as a sentence someone can act on.
 
 ### Type
 

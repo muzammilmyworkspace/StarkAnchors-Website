@@ -80,12 +80,19 @@ export type ServiceIconName =
   | "workflow" | "intelligence" | "records" | "qualify" | "message"
   | "telemetry" | "attribution" | "leakage" | "audit";
 
-export type SocialPlatform = "linkedin" | "instagram" | "facebook" | "youtube";
+export type SocialPlatform =
+  | "linkedin"
+  | "instagram"
+  | "facebook"
+  | "whatsapp"
+  | "youtube";
 
 /** A single deliverable inside a capability category. */
 export type Capability = {
   id: string;
   name: string;
+  /** The scannable name — what a buyer would actually search for. */
+  short: string;
   icon: ServiceIconName;
   /** One line a buyer can recognise their own need in. */
   summary: string;
@@ -97,6 +104,10 @@ export type Capability = {
 export type CapabilityCategory = {
   id: string;
   index: string;
+  /** One-word stage verb, used in the growth-system infographic. */
+  verb: string;
+  /** What this stage produces, in three words or fewer. */
+  output: string;
   /** The positioning name, e.g. "Digital Experience Engineering". */
   name: string;
   /** The plain-language name, so nobody has to decode the positioning. */

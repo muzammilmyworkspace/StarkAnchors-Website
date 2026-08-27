@@ -45,37 +45,47 @@ export const positioning = {
 } as const;
 
 /**
- * The conceptual spine of the brand. Referenced by the footer readout
- * and the services architecture. Order is meaningful.
- */
-export const systemSequence = [
-  "INPUT",
-  "SIGNAL",
-  "ANALYSIS",
-  "DIAGNOSIS",
-  "ARCHITECTURE",
-  "AUTOMATION",
-  "OPTIMIZATION",
-  "SCALE",
-] as const;
-
-/**
- * Social profiles.
+ * SOCIAL PROFILES — CHECK THESE BEFORE LAUNCH.
  *
- * `href: null` means the account is not published yet. The footer skips
- * those rather than linking to a guess — inventing a profile URL is the
- * kind of small fabrication that costs real trust the moment someone
- * clicks it. Fill in the URL here and the icon appears.
+ * WhatsApp is derived from the published phone number, so it is correct
+ * by construction and opens a chat directly.
+ *
+ * The other three are the conventional handle for this brand name and
+ * are assumptions, not confirmed accounts. Verify each one and correct
+ * it here if the real handle differs — a social icon that leads
+ * somewhere wrong costs more trust than no icon at all.
  */
 export const socialProfiles: {
   platform: SocialPlatform;
   label: string;
-  href: string | null;
+  href: string;
+  /** False once the URL has been confirmed against the live account. */
+  assumed: boolean;
 }[] = [
-  { platform: "linkedin", label: "LinkedIn", href: null },
-  { platform: "instagram", label: "Instagram", href: null },
-  { platform: "facebook", label: "Facebook", href: null },
-  { platform: "youtube", label: "YouTube", href: null },
+  {
+    platform: "linkedin",
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/starkanchors",
+    assumed: true,
+  },
+  {
+    platform: "instagram",
+    label: "Instagram",
+    href: "https://www.instagram.com/starkanchors",
+    assumed: true,
+  },
+  {
+    platform: "facebook",
+    label: "Facebook",
+    href: "https://www.facebook.com/starkanchors",
+    assumed: true,
+  },
+  {
+    platform: "whatsapp",
+    label: "WhatsApp",
+    href: `https://wa.me/${site.phone.replace("+", "")}`,
+    assumed: false,
+  },
 ];
 
 /** The footer's contact prompt. */

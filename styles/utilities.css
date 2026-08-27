@@ -62,16 +62,18 @@
   display: inline-flex;
   align-items: center;
   gap: var(--space-3);
-  padding: 0.95rem 1.5rem;
+  padding: 0.95rem 1.6rem;
   border: var(--hairline) solid transparent;
   border-radius: var(--radius-none);
   background: var(--btn-bg);
   color: var(--btn-fg);
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
+  /* Inter, not the mono face. Wide-tracked uppercase mono reads as a
+     system label; a call to action needs to read as a sentence a
+     person can act on. */
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
   font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+  letter-spacing: -0.005em;
   white-space: nowrap;
   cursor: pointer;
   transition:
@@ -99,13 +101,12 @@
   display: inline-flex;
   align-items: center;
   gap: var(--space-3);
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
   font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+  letter-spacing: -0.005em;
   color: var(--titanium);
-  padding-bottom: 0.45rem;
+  padding-bottom: 0.4rem;
   border-bottom: var(--hairline) solid var(--line-strong);
   transition: border-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
 }
@@ -206,10 +207,9 @@ textarea.field { resize: vertical; min-height: 7.5rem; line-height: 1.6; }
   background: var(--titanium);
   color: var(--obsidian);
   padding: 0.75rem 1.25rem;
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 600;
 }
 .skip-link:focus { top: var(--space-4); }
 

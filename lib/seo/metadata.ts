@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { site } from "@/data/site";
 
+const siteName = site.name;
+const siteUrl = site.url;
+
 type PageMetaInput = {
   title: string;
   description: string;
@@ -135,4 +138,64 @@ export function breadcrumbSchema(trail: { name: string; path: string }[]) {
 /** Serialises schema for a `<script type="application/ld+json">` tag. */
 export function jsonLd(schema: object) {
   return { __html: JSON.stringify(schema).replace(/</g, "\\u003c") };
+}
+
+/**
+ * FAQ structured data.
+ *
+ * Eligible for an FAQ rich result, and — more usefully — it makes the
+ * answers machine-readable for the assistants people increasingly ask
+ * before they ever reach a website.
+ */
+export function faqSchema(items: { question: string; answer: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: { "@type": "Answer", text: item.answer },
+    })),
+  };
+}
+
+/**
+ * The service catalogue.
+ *
+ * Declares, in a form a search engine can parse, that this company
+ * offers web development, advertising across four named platforms,
+ * social management, automation and analytics. Without it, a site whose
+ * copy is deliberately positioned ("Digital Experience Engineering")
+ * can be invisible for the words buyers actually search.
+ */
+export function serviceCatalogSchema(
+  categories: { name: string; plain: string; capabilities: { name: string; summary: string }[] }[],
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: "Business systems engineering",
+    provider: {
+      "@type": "Organization",
+      name: siteName,
+      url: siteUrl,
+    },
+    areaServed: "Worldwide",
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Stark Anchors capabilities",
+      itemListElement: categories.map((category) => ({
+        "@type": "OfferCatalog",
+        name: `${category.name} — ${category.plain}`,
+        itemListElement: category.capabilities.map((capability) => ({
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: capability.name,
+            description: capability.summary,
+          },
+        })),
+      })),
+    },
+  };
 }

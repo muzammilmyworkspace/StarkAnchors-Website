@@ -15,7 +15,7 @@ import { site } from "@/data/site";
 import { buildMetadata } from "@/lib/seo/metadata";
 
 export const metadata = buildMetadata({
-  title: site.discipline,
+  title: "Web Development, Paid Ads & Business Automation",
   description: site.description,
   path: "/",
 });

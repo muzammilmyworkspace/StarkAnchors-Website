@@ -62,6 +62,20 @@ function Facebook({ className }: IconProps) {
   );
 }
 
+function WhatsApp({ className }: IconProps) {
+  return (
+    <svg {...frame} className={className ?? SIZE}>
+      {/* Speech bubble with the tail at lower-left, as the mark has it. */}
+      <path d="M3.4 20.6 L4.7 16.4 A9 9 0 1 1 8 19.5 Z" strokeLinejoin="round" />
+      {/* The handset, simplified to its two pads and the connecting sweep. */}
+      <path
+        d="M9.1 9.1 C9.1 11.9 11.4 14.2 14.2 14.2 L15.3 13.1 L13.7 12 L12.6 12.8 C11.8 12.4 11 11.6 10.5 10.7 L11.3 9.6 L10.2 8 Z"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 function YouTube({ className }: IconProps) {
   return (
     <svg {...frame} className={className ?? SIZE}>
@@ -75,6 +89,7 @@ const REGISTRY: Record<SocialPlatform, (props: IconProps) => React.JSX.Element> 
   linkedin: LinkedIn,
   instagram: Instagram,
   facebook: Facebook,
+  whatsapp: WhatsApp,
   youtube: YouTube,
 };
 

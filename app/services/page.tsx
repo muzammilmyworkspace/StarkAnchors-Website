@@ -3,12 +3,21 @@ import { EngageBlock } from "@/components/layout/EngageBlock";
 import { ServicesHero } from "@/features/services/sections/ServicesHero";
 import { CapabilitySystems } from "@/features/services/sections/CapabilitySystems";
 import { EngagementArchitecture } from "@/features/services/sections/EngagementArchitecture";
-import { buildMetadata, breadcrumbSchema, jsonLd } from "@/lib/seo/metadata";
+import { Faq } from "@/features/services/sections/Faq";
+import { capabilityCategories } from "@/data/capabilities";
+import { faqs } from "@/data/faq";
+import {
+  breadcrumbSchema,
+  buildMetadata,
+  faqSchema,
+  jsonLd,
+  serviceCatalogSchema,
+} from "@/lib/seo/metadata";
 
 export const metadata = buildMetadata({
-  title: "Systems",
+  title: "Services — Web Development, Ads, Automation & Analytics",
   description:
-    "Website, landing page and dashboard development; Meta, Google, YouTube and LinkedIn advertising; social presence engineering; CRM, AI and operational automation; behavioural telemetry, attribution and conversion audits — engineered as one connected system.",
+    "Website and landing page development, custom dashboards, Meta, Google, YouTube and LinkedIn ads, social media management, CRM and AI automation, WhatsApp automation, analytics and conversion audits — built as one connected growth system.",
   path: "/services",
 });
 
@@ -16,13 +25,14 @@ export const metadata = buildMetadata({
  * SERVICES
  *
  * Rhythm: indexed hero → ecosystem chain → five capability bands with
- * alternating grounds → the seven-stage engagement stepper → closing.
+ * alternating grounds → the seven-stage engagement stepper → FAQ →
+ * closing.
  *
- * The page is long by design. Someone comparing agencies needs to find
- * their specific requirement, and a page that hides eighteen
- * capabilities behind five vague headings fails that person to protect
- * a design principle. The grounds alternate and the treatments differ so
- * that length reads as depth rather than as repetition.
+ * Structured data does real work on this page. The copy is positioned
+ * ("Digital Experience Engineering"), and positioning alone can make a
+ * site invisible for the words buyers actually type. The service
+ * catalogue declares every capability under its plain name so search
+ * engines and assistants can answer "do they build websites" correctly.
  */
 export default function ServicesPage() {
   return (
@@ -34,14 +44,23 @@ export default function ServicesPage() {
         dangerouslySetInnerHTML={jsonLd(
           breadcrumbSchema([
             { name: "Home", path: "/" },
-            { name: "Systems", path: "/services" },
+            { name: "Services", path: "/services" },
           ]),
         )}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={jsonLd(serviceCatalogSchema(capabilityCategories))}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={jsonLd(faqSchema(faqs))}
       />
 
       <ServicesHero />
       <CapabilitySystems />
       <EngagementArchitecture />
+      <Faq />
 
       <EngageBlock
         headline="Which link is failing is a question with an answer."

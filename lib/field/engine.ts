@@ -127,9 +127,9 @@ const BASE: FieldConfig = {
   signalSpeed: 0.42,
   signalLife: 4,
   directional: false,
-  edgeAlpha: 0.055,
-  nodeAlpha: 0.2,
-  intensity: 1,
+  edgeAlpha: 0.032,
+  nodeAlpha: 0.12,
+  intensity: 0.72,
   pointerReach: 190,
 };
 
@@ -152,9 +152,9 @@ const VARIANTS: Record<FieldVariant, Partial<FieldConfig>> = {
     hubRatio: 0.06,
     spawnRate: 0.35,
     signalSpeed: 0.24,
-    edgeAlpha: 0.07,
-    nodeAlpha: 0.16,
-    intensity: 0.85,
+    edgeAlpha: 0.04,
+    nodeAlpha: 0.1,
+    intensity: 0.62,
   },
 
   /** SERVICES — topology with a consistent direction of travel. */
@@ -168,9 +168,9 @@ const VARIANTS: Record<FieldVariant, Partial<FieldConfig>> = {
     signalSpeed: 0.5,
     signalLife: 6,
     directional: true,
-    edgeAlpha: 0.05,
-    nodeAlpha: 0.18,
-    intensity: 0.9,
+    edgeAlpha: 0.03,
+    nodeAlpha: 0.11,
+    intensity: 0.66,
   },
 
   /** PRICING + LOGS — almost still. Reading surfaces. */
@@ -183,9 +183,9 @@ const VARIANTS: Record<FieldVariant, Partial<FieldConfig>> = {
     hubRatio: 0.04,
     spawnRate: 0.14,
     signalSpeed: 0.2,
-    edgeAlpha: 0.04,
-    nodeAlpha: 0.12,
-    intensity: 0.62,
+    edgeAlpha: 0.026,
+    nodeAlpha: 0.08,
+    intensity: 0.48,
     pointerReach: 0,
   },
 
@@ -200,9 +200,9 @@ const VARIANTS: Record<FieldVariant, Partial<FieldConfig>> = {
     spawnRate: 3.2,
     signalSpeed: 0.62,
     signalLife: 3,
-    edgeAlpha: 0.045,
-    nodeAlpha: 0.2,
-    intensity: 0.8,
+    edgeAlpha: 0.028,
+    nodeAlpha: 0.12,
+    intensity: 0.6,
   },
 };
 
@@ -573,11 +573,11 @@ export function drawScene(
     ctx.beginPath();
     ctx.moveTo(a.x + (b.x - a.x) * tt, a.y + (b.y - a.y) * tt);
     ctx.lineTo(x, y);
-    ctx.strokeStyle = `rgba(${SIGNAL}, ${0.3 * master})`;
+    ctx.strokeStyle = `rgba(${SIGNAL}, ${0.24 * master})`;
     ctx.lineWidth = 1;
     ctx.stroke();
 
-    ctx.fillStyle = `rgba(${SIGNAL}, ${0.95 * master})`;
+    ctx.fillStyle = `rgba(${SIGNAL}, ${0.8 * master})`;
     ctx.fillRect(x - 1.4, y - 1.4, 2.8, 2.8);
   }
 }

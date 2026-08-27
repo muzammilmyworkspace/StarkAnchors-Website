@@ -21,6 +21,8 @@ export const capabilityCategories: CapabilityCategory[] = [
   {
     id: "digital-experience",
     index: "01",
+    verb: "Build",
+    output: "Your digital surface",
     name: "Digital Experience Engineering",
     plain: "Websites, landing pages and dashboards",
     thesis: "The surface is where positioning either survives contact or does not.",
@@ -30,6 +32,7 @@ export const capabilityCategories: CapabilityCategory[] = [
       {
         id: "website-development",
         name: "Website Development",
+        short: "Websites",
         icon: "website",
         summary: "Custom, high-performance sites built around conversion rather than pages.",
         scope: [
@@ -44,6 +47,7 @@ export const capabilityCategories: CapabilityCategory[] = [
       {
         id: "landing-pages",
         name: "Landing Page Engineering",
+        short: "Landing Pages",
         icon: "landingPage",
         summary: "Single-purpose pages for paid traffic, launches and lead generation.",
         scope: [
@@ -58,6 +62,7 @@ export const capabilityCategories: CapabilityCategory[] = [
       {
         id: "dashboards",
         name: "Business Intelligence Interfaces",
+        short: "Dashboards",
         icon: "dashboard",
         summary: "Your command centre: scattered business data turned into something a team can act on.",
         scope: [
@@ -75,6 +80,8 @@ export const capabilityCategories: CapabilityCategory[] = [
   {
     id: "acquisition",
     index: "02",
+    verb: "Attract",
+    output: "Qualified traffic",
     name: "Performance Acquisition Systems",
     plain: "Meta, Google, YouTube and LinkedIn advertising",
     thesis: "A campaign is not a system. Spend without attribution is a donation.",
@@ -84,6 +91,7 @@ export const capabilityCategories: CapabilityCategory[] = [
       {
         id: "meta-ads",
         name: "Meta Ads",
+        short: "Meta Ads",
         icon: "targeting",
         summary: "Facebook and Instagram acquisition, built as campaign architecture.",
         scope: [
@@ -98,6 +106,7 @@ export const capabilityCategories: CapabilityCategory[] = [
       {
         id: "google-ads",
         name: "Google Ads",
+        short: "Google Ads",
         icon: "search",
         summary: "Capturing demand that already exists, at the moment of intent.",
         scope: [
@@ -112,6 +121,7 @@ export const capabilityCategories: CapabilityCategory[] = [
       {
         id: "youtube-ads",
         name: "YouTube Advertising",
+        short: "YouTube Ads",
         icon: "video",
         summary: "Video funnels for demand generation, not view counts.",
         scope: [
@@ -126,6 +136,7 @@ export const capabilityCategories: CapabilityCategory[] = [
       {
         id: "linkedin-ads",
         name: "LinkedIn Ads",
+        short: "LinkedIn Ads",
         icon: "professional",
         summary: "B2B acquisition aimed at accounts and decision-makers, not job titles alone.",
         scope: [
@@ -143,6 +154,8 @@ export const capabilityCategories: CapabilityCategory[] = [
   {
     id: "social-presence",
     index: "03",
+    verb: "Engage",
+    output: "Authority and trust",
     name: "Social Presence Engineering",
     plain: "Social media management and content",
     thesis: "Your social presence is not a content calendar. It is acquisition, authority and trust infrastructure.",
@@ -152,6 +165,7 @@ export const capabilityCategories: CapabilityCategory[] = [
       {
         id: "social-strategy",
         name: "Content Strategy & Direction",
+        short: "Content Strategy",
         icon: "editorial",
         summary: "What to say, to whom, and why it belongs to this business.",
         scope: [
@@ -166,6 +180,7 @@ export const capabilityCategories: CapabilityCategory[] = [
       {
         id: "social-management",
         name: "Platform Management",
+        short: "Social Management",
         icon: "broadcast",
         summary: "Day-to-day operation of the channels, run as infrastructure.",
         scope: [
@@ -183,6 +198,8 @@ export const capabilityCategories: CapabilityCategory[] = [
   {
     id: "automation-ai",
     index: "04",
+    verb: "Automate",
+    output: "Zero-friction operations",
     name: "Business Automation & AI",
     plain: "CRM automation, AI workflows and operations",
     thesis: "Repetitive operations should become infrastructure, not manual workload.",
@@ -192,6 +209,7 @@ export const capabilityCategories: CapabilityCategory[] = [
       {
         id: "crm-automation",
         name: "CRM Automation",
+        short: "CRM Automation",
         icon: "records",
         summary: "A pipeline whose state is written by the system, not by memory.",
         scope: [
@@ -206,6 +224,7 @@ export const capabilityCategories: CapabilityCategory[] = [
       {
         id: "ai-workflows",
         name: "AI Workflows",
+        short: "AI Workflows",
         icon: "intelligence",
         summary: "AI applied where judgement is repetitive and evidence is abundant.",
         scope: [
@@ -220,6 +239,7 @@ export const capabilityCategories: CapabilityCategory[] = [
       {
         id: "lead-qualification",
         name: "Lead Qualification",
+        short: "Lead Qualification",
         icon: "qualify",
         summary: "Fit resolved from behaviour before a human spends an hour on it.",
         scope: [
@@ -234,6 +254,7 @@ export const capabilityCategories: CapabilityCategory[] = [
       {
         id: "conversational",
         name: "WhatsApp & DM Automation",
+        short: "WhatsApp & DM",
         icon: "message",
         summary: "First contact in the channel the buyer already uses, in minutes not days.",
         scope: [
@@ -248,6 +269,7 @@ export const capabilityCategories: CapabilityCategory[] = [
       {
         id: "operations",
         name: "Internal Operations",
+        short: "Internal Operations",
         icon: "workflow",
         summary: "The back-office work nobody was hired to do, removed.",
         scope: [
@@ -265,6 +287,8 @@ export const capabilityCategories: CapabilityCategory[] = [
   {
     id: "data-conversion",
     index: "05",
+    verb: "Measure",
+    output: "Proof and correction",
     name: "Data & Conversion Engineering",
     plain: "Analytics, attribution and conversion audits",
     thesis: "Instrument the system before forming an opinion about it.",
@@ -274,6 +298,7 @@ export const capabilityCategories: CapabilityCategory[] = [
       {
         id: "behavioural-telemetry",
         name: "Behavioural Telemetry",
+        short: "Analytics",
         icon: "telemetry",
         summary: "What users actually do, captured as typed events rather than pageviews.",
         scope: [
@@ -288,6 +313,7 @@ export const capabilityCategories: CapabilityCategory[] = [
       {
         id: "attribution",
         name: "Attribution Modelling",
+        short: "Attribution",
         icon: "attribution",
         summary: "Revenue traced back to the behaviour that produced it.",
         scope: [
@@ -302,6 +328,7 @@ export const capabilityCategories: CapabilityCategory[] = [
       {
         id: "leakage-analysis",
         name: "Revenue Leakage Analysis",
+        short: "Leakage Analysis",
         icon: "leakage",
         summary: "Where volume is lost, isolated to the interaction rather than the page.",
         scope: [
@@ -316,6 +343,7 @@ export const capabilityCategories: CapabilityCategory[] = [
       {
         id: "conversion-audit",
         name: "Conversion Audits",
+        short: "Conversion Audits",
         icon: "audit",
         summary: "A written diagnosis of the system you are running today.",
         scope: [
