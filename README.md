@@ -247,14 +247,17 @@ accent, and its icons, its rail node and its index number are drawn in it:
 
 | Stage | Accent | Contrast on obsidian |
 |---|---|---|
-| Build |  cyan | 12.6:1 |
-| Attract |  amber | 11.0:1 |
-| Engage |  violet | 7.3:1 |
-| Automate |  emerald | 10.1:1 |
-| Measure |  azure | 7.6:1 |
+| Build | `#00E5FF` cyan | 12.6:1 |
+| Attract | `#FFB454` amber | 11.0:1 |
+| Engage | `#C084FC` violet | 7.3:1 |
+| Automate | `#34D399` emerald | 10.1:1 |
+| Measure | `#60A5FA` azure | 7.6:1 |
 
-Set in  as  on each category, applied by
-. Platform logos ignore it — brand colour always wins.
+All five clear the 3:1 non-text threshold comfortably. Set in
+`data/capabilities.ts` as `accent` on each category and applied by
+`components/ui/CapabilityMark.tsx`. Platform logos ignore it — Meta blue,
+Google's four colours, YouTube red, LinkedIn blue and WhatsApp green
+always win inside their column.
 
 Colour is doing real work here rather than decorating: it groups eighteen
 capabilities into five stages that can be told apart without reading a
