@@ -40,7 +40,7 @@ export function DifferenceLedger() {
 
       {/* Desktop ledger */}
       <RevealGroup
-        className="mt-16 hidden grid-cols-[1fr_88px_1fr] md:grid lg:mt-24"
+        className="mt-11 hidden grid-cols-[1fr_88px_1fr] md:grid lg:mt-14"
         step={0.06}
       >
         {/* Heads */}
@@ -91,7 +91,7 @@ export function DifferenceLedger() {
           paragraph — it is a sequence, so it is typeset as one. */}
       <RevealGroup
         as="ol"
-        className="mt-14 hidden grid-cols-6 border-t border-line md:grid lg:mt-20"
+        className="mt-10 hidden grid-cols-6 border-t border-line md:grid lg:mt-12"
         step={0.05}
       >
         {["Diagnose", "Architect", "Integrate", "Measure", "Optimise", "Improve"].map(
@@ -121,7 +121,7 @@ export function DifferenceLedger() {
       </div>
 
       {/* Mobile: two stacked registers */}
-      <div className="mt-14 space-y-12 md:hidden">
+      <div className="mt-10 space-y-10 md:hidden">
         <div>
           <p className="t-meta border-b border-line pb-4 text-titanium-faint">
             Traditional Execution

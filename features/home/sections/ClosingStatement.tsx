@@ -21,12 +21,12 @@ export function ClosingStatement() {
       surface="veil"
       id="engage"
       rule
-      className="pb-[var(--space-11)]"
+      className="pb-[var(--space-9)]"
       labelledBy="closing-title"
     >
       {/* A single signal line entering from the left edge. */}
       <Reveal variant="fade">
-        <div className="rule-signal mb-14 w-2/3 lg:mb-20" />
+        <div className="rule-signal mb-8 w-2/3 lg:mb-10" />
       </Reveal>
 
       <div className="grid-12">
@@ -37,7 +37,7 @@ export function ClosingStatement() {
           className="t-display-xl col-span-12 max-w-[18ch] lg:col-span-9"
         />
 
-        <div className="col-span-12 mt-12 lg:col-span-3 lg:mt-0 lg:self-end">
+        <div className="col-span-12 mt-10 lg:col-span-3 lg:mt-0 lg:self-end">
           <Reveal delay={0.3}>
             <p className="t-body-s mb-7 max-w-[28ch]">
               The diagnostic is the first engineering step, not a sales call. It ends

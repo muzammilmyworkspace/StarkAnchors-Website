@@ -31,7 +31,7 @@ export function EngageBlock({
   label = "Engage",
 }: EngageBlockProps) {
   return (
-    <Section surface="veil" rhythm="tight" rule className="pb-[var(--space-10)]">
+    <Section surface="veil" rhythm="tight" rule className="pb-[var(--space-8)]">
       <div className="grid-12">
         <div className="col-span-12 lg:col-span-6">
           <p className="t-meta-sm text-titanium-faint">{label}</p>

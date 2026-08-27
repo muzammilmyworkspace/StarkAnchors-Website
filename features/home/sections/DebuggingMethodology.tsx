@@ -42,7 +42,7 @@ export function DebuggingMethodology() {
       </div>
 
       {/* The architecture */}
-      <div className="relative mt-16 lg:mt-24">
+      <div className="relative mt-11 lg:mt-14">
         {/* Spine */}
         <span aria-hidden className="absolute inset-y-0 left-0 w-px bg-line" />
 

@@ -13,7 +13,7 @@ import { Reveal } from "@/components/motion/Reveal";
  */
 export function AboutHero() {
   return (
-    <section className="surface-veil relative pb-[var(--section-y-tight)] pt-36 lg:pt-48" aria-labelledby="about-title">
+    <section className="surface-veil relative pb-[var(--section-y-tight)] pt-32 lg:pt-40" aria-labelledby="about-title">
       <div className="shell relative z-[1]">
         <SectionLabel index="00">About</SectionLabel>
 
@@ -30,7 +30,7 @@ export function AboutHero() {
             headline rather than beside it, so the page opens with type,
             then material, then argument. */}
         <Reveal variant="fade">
-          <figure className="relative mt-14 lg:mt-20">
+          <figure className="relative mt-10 lg:mt-12">
             <div className="relative aspect-[21/9] w-full overflow-hidden">
               <Image
                 src="/images/foundation.webp"
@@ -58,7 +58,7 @@ export function AboutHero() {
           </figure>
         </Reveal>
 
-        <div className="rule-strong mt-14 lg:mt-20" />
+        <div className="rule-strong mt-10 lg:mt-12" />
 
         {/* Two-column editorial introduction. The measure is narrow on
             purpose — long lines of dim text at full width are the

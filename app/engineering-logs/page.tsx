@@ -28,7 +28,7 @@ export default function EngineeringLogsPage() {
         )}
       />
 
-      <section className="pb-[var(--section-y-tight)] pt-36 lg:pt-48" aria-labelledby="logs-title">
+      <section className="pb-[var(--section-y-tight)] pt-32 lg:pt-40" aria-labelledby="logs-title">
         <div className="shell">
           <SectionLabel index="00">Archive</SectionLabel>
 

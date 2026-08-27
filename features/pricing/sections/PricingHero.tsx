@@ -14,7 +14,7 @@ import { pricingPrinciple, pricingTerms } from "@/data/pricing";
  */
 export function PricingHero() {
   return (
-    <section className="pb-[var(--section-y-tight)] pt-36 lg:pt-48" aria-labelledby="pricing-title">
+    <section className="pb-[var(--section-y-tight)] pt-32 lg:pt-40" aria-labelledby="pricing-title">
       <div className="shell">
         <SectionLabel index="00">Scope</SectionLabel>
 

@@ -355,6 +355,7 @@ modal semantics, focus trap, scroll lock and Escape handling.
 | FCP | 248–344ms |
 | LCP | 0.9–2.0s (home is highest — the once-per-session boot) |
 | CLS | 0.0001–0.0002 |
+| Home page height | 11,729px (was 13,758px before the rhythm was tightened) |
 
 CSS is 10KB gzipped for the whole design system. Static assets are cached
 immutably for a year. No horizontal overflow at 360px, 390px, 768px or

@@ -18,7 +18,7 @@ export function ServicesHero() {
   return (
     <>
       <section
-        className="surface-veil relative pb-[var(--section-y-tight)] pt-36 lg:pt-48"
+        className="surface-veil relative pb-[var(--section-y-tight)] pt-32 lg:pt-40"
         aria-labelledby="services-title"
       >
         <div className="shell relative z-[1]">
@@ -87,7 +87,7 @@ export function ServicesHero() {
           </div>
         </div>
 
-        <div className="mt-14 lg:mt-16">
+        <div className="mt-10 lg:mt-12">
           <EcosystemChain />
         </div>
 

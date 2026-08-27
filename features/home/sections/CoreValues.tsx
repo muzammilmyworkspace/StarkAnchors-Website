@@ -42,7 +42,7 @@ export function CoreValues() {
       </div>
 
       <RevealGroup
-        className="mt-16 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:mt-24 lg:grid-cols-3"
+        className="mt-11 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:mt-14 lg:grid-cols-3"
         step={0.06}
       >
         {pillars.map((pillar, index) => (
@@ -58,7 +58,7 @@ export function CoreValues() {
         ))}
       </RevealGroup>
 
-      <div className="mt-14 flex flex-wrap items-center gap-x-8 gap-y-4">
+      <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
         <p className="t-body-s max-w-[46ch]">
           Each of these carries a cost, which is what makes it a standard rather than
           a preference. The full argument for all six is on the About page.

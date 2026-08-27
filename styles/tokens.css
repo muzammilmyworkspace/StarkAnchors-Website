@@ -69,8 +69,12 @@
   --space-9: 5rem;
   --space-10: 7rem;
   --space-11: 9.5rem;
-  --section-y: clamp(5.5rem, 11vw, 10rem);
-  --section-y-tight: clamp(3.5rem, 7vw, 6rem);
+  /* Section rhythm. These are applied top AND bottom, so the gap
+     between two sections is double the value — keep that in mind
+     before raising them. At 10rem the page was carrying 320px of dead
+     space between every pair of sections. */
+  --section-y: clamp(2.75rem, 4.4vw, 4.25rem);
+  --section-y-tight: clamp(2rem, 3vw, 2.75rem);
 
   /* --- MOTION -------------------------------------------------
      Expensive motion: slow in, slower out, never bouncy. */

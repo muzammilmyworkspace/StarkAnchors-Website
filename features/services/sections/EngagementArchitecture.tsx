@@ -34,7 +34,7 @@ export function EngagementArchitecture() {
         </div>
       </div>
 
-      <div className="mt-16 lg:mt-24">
+      <div className="mt-11 lg:mt-14">
         <ArchitectureStepper />
       </div>
     </Section>

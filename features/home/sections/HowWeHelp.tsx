@@ -74,7 +74,7 @@ export function HowWeHelp() {
       </div>
 
       {/* The switchboard */}
-      <RevealGroup className="mt-16 border-t border-line lg:mt-20" step={0.06}>
+      <RevealGroup className="mt-11 border-t border-line lg:mt-14" step={0.06}>
         {problemRoutes.map((route) => (
           <RevealItem key={route.id} as="div" className="border-b border-line">
             <Link

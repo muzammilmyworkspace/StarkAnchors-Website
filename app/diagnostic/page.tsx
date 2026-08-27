@@ -36,7 +36,7 @@ export default function DiagnosticPage() {
         )}
       />
 
-      <section className="surface-veil relative pb-[var(--section-y-tight)] pt-36 lg:pt-48" aria-labelledby="diagnostic-title">
+      <section className="surface-veil relative pb-[var(--section-y-tight)] pt-32 lg:pt-40" aria-labelledby="diagnostic-title">
         <div className="shell relative z-[1]">
           <SectionLabel index="00" active>
             {diagnosticIntro.eyebrow}
@@ -63,7 +63,7 @@ export default function DiagnosticPage() {
         </div>
       </section>
 
-      <div className="shell pb-[var(--space-11)]">
+      <div className="shell pb-[var(--space-9)]">
         <DiagnosticPortal />
       </div>
     </>

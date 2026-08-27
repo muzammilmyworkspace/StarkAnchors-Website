@@ -43,7 +43,7 @@ export function LatestLogs() {
         </div>
       </div>
 
-      <RevealGroup className="mt-14 border-t border-line lg:mt-20" step={0.07}>
+      <RevealGroup className="mt-10 border-t border-line lg:mt-12" step={0.07}>
         {entries.map((entry) => (
           <RevealItem key={entry.slug} as="div" className="border-b border-line">
             <Link
@@ -67,7 +67,7 @@ export function LatestLogs() {
         ))}
       </RevealGroup>
 
-      <div className="mt-10">
+      <div className="mt-8">
         <ActionLink href="/engineering-logs" variant="inline">
           Explore the engineering logs
         </ActionLink>

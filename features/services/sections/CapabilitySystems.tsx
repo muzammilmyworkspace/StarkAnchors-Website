@@ -92,7 +92,7 @@ export function CapabilitySystems() {
               {/* Optional editorial image, run as a wide band under the head */}
               {image && (
                 <Reveal variant="fade">
-                  <figure className="relative mt-14 lg:mt-20">
+                  <figure className="relative mt-10 lg:mt-12">
                     <div className="relative aspect-[21/8] w-full overflow-hidden">
                       <Image
                         src={image.src}
@@ -118,7 +118,7 @@ export function CapabilitySystems() {
               )}
 
               {/* Capabilities */}
-              <div className="mt-16 lg:mt-20">
+              <div className="mt-11 lg:mt-14">
                 {category.capabilities.map((capability) => (
                   <div
                     key={capability.id}
