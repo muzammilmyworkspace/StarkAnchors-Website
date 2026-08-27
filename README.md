@@ -196,8 +196,15 @@ same vocabulary as the mark: squares, diamonds, hairlines, 45° diagonals,
 24-unit grid, square caps.
 
 `components/ui/PlatformLogo.tsx` — the **real** marks for Meta, Google,
-YouTube, LinkedIn and WhatsApp, drawn as single-colour outlines at the
-house stroke weight.
+YouTube, LinkedIn and WhatsApp, in their **real colours**.
+
+This is a deliberate, contained exception to the palette discipline:
+everything else is obsidian, titanium and one blue, and these five are
+Meta blue, Google four-colour, YouTube red, LinkedIn blue and WhatsApp
+green. It is worth it because recognition is the whole job here — a
+visitor identifies the four-colour G pre-attentively, before reading a
+word, and no amount of house-style consistency is worth costing them
+that.
 
 An earlier version used abstract technical icons for the ad platforms on
 the reasoning that a rounded third-party mark would clash with the

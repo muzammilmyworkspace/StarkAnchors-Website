@@ -72,7 +72,9 @@ export function Footer() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`${site.name} on ${profile.label}`}
-                      className="flex h-11 w-11 items-center justify-center border border-line text-titanium-dim transition-colors hover:border-laser hover:text-laser"
+                      // The marks carry their own colour now, so the hover
+                      // state moves to the frame rather than the glyph.
+                      className="flex h-11 w-11 items-center justify-center border border-line transition-colors hover:border-laser"
                     >
                       <SocialIcon platform={profile.platform} />
                     </a>

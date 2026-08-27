@@ -1,91 +1,114 @@
 import type { PlatformName } from "@/types";
 
 /**
- * PLATFORM LOGOS
+ * PLATFORM LOGOS — the real marks, in their real colours.
  *
- * The real marks for the advertising platforms we run campaigns on.
+ * This is a deliberate, contained exception to the palette discipline.
+ * Everything else on this site is obsidian, titanium and one blue; these
+ * five are Meta blue, Google's four colours, YouTube red, LinkedIn blue
+ * and WhatsApp green.
  *
- * Earlier versions of this site used abstract technical icons here —
- * a target for Meta, a magnifier for Google — on the reasoning that a
- * rounded third-party mark would clash with the square-capped house
- * style. That was the wrong call commercially: a visitor scanning for
- * "do they run Google Ads" recognises the G in a fraction of the time
- * it takes to read a label, and recognition is the entire job of this
- * part of the page.
+ * The exception is worth it because recognition is the entire job here.
+ * A visitor scanning for "do they run Google Ads" identifies the
+ * four-colour G pre-attentively — before reading a single word — and no
+ * amount of house-style consistency is worth costing them that.
  *
- * Drawn as single-colour outlines at one stroke weight so they sit at
- * the same visual weight as everything around them. Monochrome
- * treatment is permitted by all four brand guidelines and, unlike a
- * redrawn full-colour logo, it cannot misrepresent anyone's palette.
- * Geometry follows each official mark; nothing is stretched or
- * restyled.
+ * Two earlier attempts got this wrong: first abstract technical icons
+ * (a target for Meta, a magnifier for Google), then monochrome outlines
+ * of the real geometry. Both still read as "custom icons" rather than as
+ * the platforms themselves.
  *
  * Nominative use: these identify the platforms a service runs on. They
- * are not partner badges and must never be presented as endorsements.
+ * are not partner badges, and must never be presented as endorsements.
+ * Official geometry and official colours, undistorted.
  */
 
 type LogoProps = { className?: string };
 
 const SIZE = "h-5 w-5";
 
-const frame = {
+const box = {
   viewBox: "0 0 24 24",
-  fill: "none",
-  stroke: "currentColor",
-  strokeWidth: 1.6,
-  strokeLinecap: "round" as const,
-  strokeLinejoin: "round" as const,
   "aria-hidden": true,
   focusable: "false" as const,
 };
 
-/** Meta — the interlocking loop. */
+/** Meta — the interlocking loop, Meta blue. */
 function Meta({ className }: LogoProps) {
   return (
-    <svg {...frame} className={className ?? SIZE}>
-      <path d="M1.9 12c0-3.9 2-6.4 4.4-6.4 2.9 0 4.5 3.4 5.7 6.4 1.2 3 2.8 6.4 5.7 6.4 2.4 0 4.4-2.5 4.4-6.4s-2-6.4-4.4-6.4c-2.9 0-4.5 3.4-5.7 6.4-1.2 3-2.8 6.4-5.7 6.4-2.4 0-4.4-2.5-4.4-6.4Z" />
+    <svg {...box} className={className ?? SIZE} fill="none">
+      <path
+        d="M2.4 12c0-3.6 1.85-6 4.1-6 2.7 0 4.2 3.2 5.5 6 1.3 2.8 2.8 6 5.5 6 2.25 0 4.1-2.4 4.1-6s-1.85-6-4.1-6c-2.7 0-4.2 3.2-5.5 6-1.3 2.8-2.8 6-5.5 6-2.25 0-4.1-2.4-4.1-6Z"
+        stroke="#0081FB"
+        strokeWidth="2.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   );
 }
 
-/** Google — the G: an open ring closed by a bar into the centre. */
+/**
+ * Google — the G, in all four colours.
+ *
+ * Built as four stroked arcs around one circle plus the blue bar, rather
+ * than as a traced outline: at 20px the arc construction is
+ * indistinguishable from the official mark and it stays crisp at any size.
+ */
 function Google({ className }: LogoProps) {
+  const arc = { fill: "none", strokeWidth: 4.6, strokeLinecap: "butt" as const };
   return (
-    <svg {...frame} className={className ?? SIZE}>
-      <path d="M12 3.5a8.5 8.5 0 1 0 8.4 9.9H12" />
+    <svg {...box} className={className ?? SIZE}>
+      {/* red — over the top */}
+      <path d="M16.56 6.17A7.4 7.4 0 0 0 4.85 10.09" stroke="#EA4335" {...arc} />
+      {/* yellow — down the left */}
+      <path d="M4.85 10.09A7.4 7.4 0 0 0 10.09 19.15" stroke="#FBBC05" {...arc} />
+      {/* green — along the bottom */}
+      <path d="M10.09 19.15A7.4 7.4 0 0 0 18.41 15.7" stroke="#34A853" {...arc} />
+      {/* blue — up the right, plus the bar into the centre */}
+      <path d="M18.41 15.7A7.4 7.4 0 0 0 18.95 9.47" stroke="#4285F4" {...arc} />
+      <rect x="11.6" y="9.7" width="8.4" height="4.6" fill="#4285F4" />
     </svg>
   );
 }
 
-/** YouTube — the rounded plate and play triangle. */
+/** YouTube — the red plate and white play triangle. */
 function YouTube({ className }: LogoProps) {
   return (
-    <svg {...frame} className={className ?? SIZE}>
-      <rect x="1.8" y="5.2" width="20.4" height="13.6" rx="4" />
-      <path d="M10.2 9.2 15.4 12l-5.2 2.8Z" />
+    <svg {...box} className={className ?? SIZE}>
+      <rect x="1.5" y="5" width="21" height="14" rx="4.6" fill="#FF0000" />
+      <path d="M9.9 8.6 16 12l-6.1 3.4Z" fill="#FFFFFF" />
     </svg>
   );
 }
 
-/** LinkedIn — the plate with the "in". */
+/** LinkedIn — the blue plate and white "in". */
 function LinkedIn({ className }: LogoProps) {
   return (
-    <svg {...frame} className={className ?? SIZE}>
-      <rect x="2.5" y="2.5" width="19" height="19" rx="2.5" />
-      <path d="M7.2 10.4V17" />
-      <circle cx="7.2" cy="7.3" r="1.15" fill="currentColor" stroke="none" />
-      <path d="M11.2 17v-6.6" />
-      <path d="M11.2 13.1c0-1.8 1.3-2.9 3-2.9s2.7 1.1 2.7 3V17" />
+    <svg {...box} className={className ?? SIZE}>
+      <rect x="2" y="2" width="20" height="20" rx="3" fill="#0A66C2" />
+      <circle cx="7.3" cy="7.9" r="1.6" fill="#FFFFFF" />
+      <rect x="6" y="10.2" width="2.6" height="7.6" fill="#FFFFFF" />
+      <path
+        d="M10.2 10.2h2.5v1.05c.6-.82 1.62-1.27 2.87-1.27 2.12 0 3.57 1.3 3.57 3.77v4.05h-2.6v-3.6c0-1.26-.56-1.92-1.57-1.92-1.06 0-1.67.73-1.67 2v3.52h-2.6Z"
+        fill="#FFFFFF"
+      />
     </svg>
   );
 }
 
-/** WhatsApp — the bubble and handset. */
+/** WhatsApp — the green bubble and white handset. */
 function WhatsApp({ className }: LogoProps) {
   return (
-    <svg {...frame} className={className ?? SIZE}>
-      <path d="M3.4 20.6 4.7 16.4A9 9 0 1 1 8 19.5Z" />
-      <path d="M9.1 9.1c0 2.8 2.3 5.1 5.1 5.1l1.1-1.1-1.6-1.1-1.1.8c-.8-.4-1.6-1.2-2.1-2.1l.8-1.1-1.1-1.6Z" />
+    <svg {...box} className={className ?? SIZE}>
+      <path
+        d="M12 2.3a9.5 9.5 0 0 0-8.15 14.4L2.5 21.7l5.2-1.32A9.5 9.5 0 1 0 12 2.3Z"
+        fill="#25D366"
+      />
+      <path
+        d="M9.5 7.6c-.22-.5-.45-.5-.66-.51h-.56c-.2 0-.51.07-.78.36-.27.3-1.02 1-1.02 2.42s1.05 2.8 1.2 3c.14.19 2.02 3.23 4.99 4.4 2.47.97 2.97.78 3.5.73.54-.05 1.74-.71 1.98-1.4.25-.68.25-1.27.17-1.39-.07-.12-.27-.2-.56-.34-.3-.15-1.74-.86-2.01-.96-.27-.1-.47-.15-.66.15-.2.29-.76.95-.93 1.15-.17.19-.34.22-.63.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.04-.17-.3-.02-.46.13-.6.13-.14.3-.36.44-.53.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.65-1.58-.86-2.02Z"
+        fill="#FFFFFF"
+      />
     </svg>
   );
 }
