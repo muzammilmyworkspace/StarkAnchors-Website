@@ -92,6 +92,7 @@ export const capabilityCategories: CapabilityCategory[] = [
         id: "meta-ads",
         name: "Meta Ads",
         short: "Meta Ads",
+        platform: "meta",
         icon: "targeting",
         summary: "Facebook and Instagram acquisition, built as campaign architecture.",
         scope: [
@@ -107,6 +108,7 @@ export const capabilityCategories: CapabilityCategory[] = [
         id: "google-ads",
         name: "Google Ads",
         short: "Google Ads",
+        platform: "google",
         icon: "search",
         summary: "Capturing demand that already exists, at the moment of intent.",
         scope: [
@@ -122,6 +124,7 @@ export const capabilityCategories: CapabilityCategory[] = [
         id: "youtube-ads",
         name: "YouTube Advertising",
         short: "YouTube Ads",
+        platform: "youtube",
         icon: "video",
         summary: "Video funnels for demand generation, not view counts.",
         scope: [
@@ -137,6 +140,7 @@ export const capabilityCategories: CapabilityCategory[] = [
         id: "linkedin-ads",
         name: "LinkedIn Ads",
         short: "LinkedIn Ads",
+        platform: "linkedin",
         icon: "professional",
         summary: "B2B acquisition aimed at accounts and decision-makers, not job titles alone.",
         scope: [
@@ -255,6 +259,7 @@ export const capabilityCategories: CapabilityCategory[] = [
         id: "conversational",
         name: "WhatsApp & DM Automation",
         short: "WhatsApp & DM",
+        platform: "whatsapp",
         icon: "message",
         summary: "First contact in the channel the buyer already uses, in minutes not days.",
         scope: [

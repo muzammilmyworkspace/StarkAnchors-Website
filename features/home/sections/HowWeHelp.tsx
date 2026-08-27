@@ -1,10 +1,10 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Section } from "@/components/layout/Section";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { ArrowRight } from "@/components/ui/icons";
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal";
 import { problemRoutes } from "@/data/capabilities";
+import { SystemsPanel } from "../components/SystemsPanel";
 
 /**
  * FROM PROBLEM TO INFRASTRUCTURE
@@ -20,9 +20,10 @@ import { problemRoutes } from "@/data/capabilities";
  * the customer's language instead of ours, which is precisely why it
  * earns its place this early in the page.
  *
- * The photograph is the humanising counterweight: the page is otherwise
- * entirely drawn, and a real surface stops it reading as a pure abstract
- * interface. It is duotoned into the palette so it belongs.
+ * Beside it sits the stack those symptoms occur in, with each platform's
+ * own logo. That answers "do you work in my tools?" in a glance — a
+ * question the decorative photograph that used to live here could not
+ * even attempt.
  */
 export function HowWeHelp() {
   return (
@@ -41,34 +42,11 @@ export function HowWeHelp() {
           </Reveal>
         </div>
 
-        {/* Editorial image, cropped tall and set into the right columns
-            rather than dropped in as a full-width band. */}
-        <div className="col-span-12 mt-12 lg:col-span-4 lg:col-start-9 lg:mt-0">
+        {/* Not a photograph. The section is about symptoms inside a
+            marketing stack, so the panel names that stack. */}
+        <div className="col-span-12 mt-10 lg:col-span-4 lg:col-start-9 lg:mt-0 lg:self-end">
           <Reveal delay={0.1}>
-            <div className="relative aspect-[4/5] w-full overflow-hidden">
-              <Image
-                src="/images/operations.webp"
-                alt="An industrial control room: banks of manual instrumentation running an operation by hand."
-                fill
-                sizes="(max-width: 1024px) 100vw, 33vw"
-                className="object-cover"
-              />
-              {/* Grounds the photograph into the page instead of letting
-                  it sit on top as a rectangle. */}
-              <div
-                aria-hidden
-                className="absolute inset-0"
-                style={{
-                  background:
-                    "linear-gradient(180deg, rgba(13,13,17,0.15) 0%, rgba(13,13,17,0.55) 62%, rgba(13,13,17,0.95) 100%)",
-                }}
-              />
-              <span aria-hidden className="tick" style={{ left: "-3px", top: "-3px" }} />
-            </div>
-            <p className="t-meta-sm mt-4 text-titanium-faint">
-              Operations run by hand <span className="px-1">/</span> the state we are
-              usually called into
-            </p>
+            <SystemsPanel />
           </Reveal>
         </div>
       </div>

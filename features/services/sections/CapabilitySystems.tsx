@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { ActionLink } from "@/components/ui/Action";
-import { ServiceIcon } from "@/components/ui/ServiceIcon";
+import { CapabilityMark } from "@/components/ui/CapabilityMark";
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal";
 import { capabilityCategories } from "@/data/capabilities";
 import { cn } from "@/lib/utils/cn";
@@ -18,8 +18,11 @@ import { cn } from "@/lib/utils/cn";
  * rather than by a rule apiece — a hairline under every line item stops
  * reading as structure and starts reading as noise.
  *
- * Two categories carry a photograph. Two, not five — an image on every
- * band would turn the page into a brochure and dilute both of them.
+ * One category carries a photograph, and only because it genuinely says
+ * something the copy cannot: the physical layer under a digital surface.
+ * An image on every band would turn the page into a brochure, and a
+ * decorative image is worse than none — it costs load time and credibility
+ * to say nothing.
  */
 
 const IMAGERY: Record<string, { src: string; alt: string; caption: string }> = {
@@ -27,11 +30,6 @@ const IMAGERY: Record<string, { src: string; alt: string; caption: string }> = {
     src: "/images/infrastructure.webp",
     alt: "Rack-mounted servers with structured cabling running to a patch field.",
     caption: "The layer under the surface",
-  },
-  "automation-ai": {
-    src: "/images/operations.webp",
-    alt: "An industrial control room: banks of manual instrumentation and switchgear.",
-    caption: "Operations before automation",
   },
 };
 
@@ -129,7 +127,7 @@ export function CapabilitySystems() {
                       <div className="col-span-12 lg:col-span-4">
                         <Reveal>
                           <span aria-hidden className="block text-titanium-dim">
-                            <ServiceIcon name={capability.icon} className="h-7 w-7" />
+                            <CapabilityMark capability={capability} className="h-7 w-7" />
                           </span>
                           <h3 className="t-display-m mt-5 max-w-[14ch] text-titanium">
                             {capability.name}

@@ -195,10 +195,24 @@ anywhere, so a rounded set would read as borrowed. These are built from the
 same vocabulary as the mark: squares, diamonds, hairlines, 45° diagonals,
 24-unit grid, square caps.
 
-`components/ui/SocialIcon.tsx` — the four platform marks, used **only** in
-the footer where they function as links to those platforms. The advertising
-*services* (Meta, Google, YouTube, LinkedIn) use this project's own
-technical icons instead, so no trademark is reproduced decoratively.
+`components/ui/PlatformLogo.tsx` — the **real** marks for Meta, Google,
+YouTube, LinkedIn and WhatsApp, drawn as single-colour outlines at the
+house stroke weight.
+
+An earlier version used abstract technical icons for the ad platforms on
+the reasoning that a rounded third-party mark would clash with the
+square-capped style. That was the wrong call commercially: someone
+scanning for "do they run Google Ads" recognises the G in a fraction of
+the time it takes to read a label, and recognition is the whole job of
+that part of the page. Monochrome treatment is permitted by all five
+brand guidelines and cannot misrepresent anyone's palette.
+
+Nominative use only — these identify platforms a service runs on, never
+partnerships or endorsements. `components/ui/CapabilityMark.tsx` is the
+single place that decides logo-vs-icon, so the home map and the services
+page can never drift apart.
+
+`components/ui/SocialIcon.tsx` — the footer's four social links.
 
 ### SEO
 
@@ -221,9 +235,15 @@ rather than the other way round.
 
 ### Imagery
 
-Three photographs, in `public/images`, each with a purpose: a foundation
-(About), infrastructure (Services), operations (Automation). All CC0 1.0 —
-provenance recorded in `public/images/CREDITS.json`.
+Two photographs, in `public/images`, each earning its place: a foundation
+(About hero) and infrastructure (Services, Digital Experience). Both CC0
+1.0 — provenance in `public/images/CREDITS.json`.
+
+A third was removed rather than kept. It was a handsome control-room shot
+sitting beside the problem-routing section, and it said nothing about a
+marketing stack. That slot is now `SystemsPanel` — the actual platforms
+those problems occur in, with their real logos. A decorative image is
+worse than none: it costs load time and credibility to say nothing.
 
 They are **art-directed, not dropped in**: desaturated, levelled into a
 compressed tonal range and duotoned to the titanium/slate cast by

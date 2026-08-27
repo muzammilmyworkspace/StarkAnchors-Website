@@ -80,6 +80,13 @@ export type ServiceIconName =
   | "workflow" | "intelligence" | "records" | "qualify" | "message"
   | "telemetry" | "attribution" | "leakage" | "audit";
 
+export type PlatformName =
+  | "meta"
+  | "google"
+  | "youtube"
+  | "linkedin"
+  | "whatsapp";
+
 export type SocialPlatform =
   | "linkedin"
   | "instagram"
@@ -94,6 +101,11 @@ export type Capability = {
   /** The scannable name — what a buyer would actually search for. */
   short: string;
   icon: ServiceIconName;
+  /**
+   * When the capability runs on a named platform, its real logo is shown
+   * instead of the house icon. Recognition beats abstraction here.
+   */
+  platform?: PlatformName;
   /** One line a buyer can recognise their own need in. */
   summary: string;
   /** Concrete scope. Work performed, not benefits promised. */

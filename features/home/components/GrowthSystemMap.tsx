@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ServiceIcon } from "@/components/ui/ServiceIcon";
+import { CapabilityMark } from "@/components/ui/CapabilityMark";
 import { capabilityCategories } from "@/data/capabilities";
 import { EASE_OUT, viewportOnce } from "@/lib/animations/presets";
 
@@ -79,7 +79,7 @@ export function GrowthSystemMap() {
                   {category.capabilities.map((capability) => (
                     <li key={capability.id} className="flex items-center gap-3">
                       <span aria-hidden className="shrink-0 text-titanium-dim">
-                        <ServiceIcon name={capability.icon} className="h-5 w-5" />
+                        <CapabilityMark capability={capability} className="h-5 w-5" />
                       </span>
                       <span className="t-body-s text-titanium-dim">
                         {capability.short}
