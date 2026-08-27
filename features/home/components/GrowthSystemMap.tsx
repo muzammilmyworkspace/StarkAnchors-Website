@@ -56,14 +56,15 @@ export function GrowthSystemMap() {
             >
               <Link href={`/services#${category.id}`} className="group block">
                 {/* Stage index */}
-                <span className="t-meta-sm block text-titanium-faint">
+                <span className="t-meta-sm block" style={{ color: category.accent }}>
                   {category.index}
                 </span>
 
                 {/* Node, sitting on the rail */}
                 <span
                   aria-hidden
-                  className="mt-4 hidden h-[11px] w-[11px] rotate-45 bg-titanium-dim transition-colors duration-300 group-hover:bg-laser lg:block"
+                  className="mt-4 hidden h-[11px] w-[11px] rotate-45 lg:block"
+                  style={{ background: category.accent }}
                 />
 
                 {/* The verb — the largest word in the column */}
@@ -78,8 +79,12 @@ export function GrowthSystemMap() {
                 <ul className="mt-6 space-y-3">
                   {category.capabilities.map((capability) => (
                     <li key={capability.id} className="flex items-center gap-3">
-                      <span aria-hidden className="shrink-0 text-titanium-dim">
-                        <CapabilityMark capability={capability} className="h-5 w-5" />
+                      <span aria-hidden className="shrink-0">
+                        <CapabilityMark
+                          capability={capability}
+                          accent={category.accent}
+                          className="h-5 w-5"
+                        />
                       </span>
                       <span className="t-body-s text-titanium-dim">
                         {capability.short}

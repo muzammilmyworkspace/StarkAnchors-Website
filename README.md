@@ -240,6 +240,26 @@ diluting the voice:
 Metadata leads with the search terms and lets the brand line follow,
 rather than the other way round.
 
+### Stage accents
+
+The eighteen house icons are not grey. Each of the five stages carries an
+accent, and its icons, its rail node and its index number are drawn in it:
+
+| Stage | Accent | Contrast on obsidian |
+|---|---|---|
+| Build |  cyan | 12.6:1 |
+| Attract |  amber | 11.0:1 |
+| Engage |  violet | 7.3:1 |
+| Automate |  emerald | 10.1:1 |
+| Measure |  azure | 7.6:1 |
+
+Set in  as  on each category, applied by
+. Platform logos ignore it — brand colour always wins.
+
+Colour is doing real work here rather than decorating: it groups eighteen
+capabilities into five stages that can be told apart without reading a
+single label. That is the one job worth spending the palette on.
+
 ### Imagery
 
 Two photographs, in `public/images`, each earning its place: a foundation

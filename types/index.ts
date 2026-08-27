@@ -118,6 +118,12 @@ export type CapabilityCategory = {
   index: string;
   /** One-word stage verb, used in the growth-system infographic. */
   verb: string;
+  /**
+   * Stage accent. Colours this category’s icons and its node on the rail,
+   * so the five stages are distinguishable at a glance. Platform logos
+   * keep their own brand colours and ignore this.
+   */
+  accent: string;
   /** What this stage produces, in three words or fewer. */
   output: string;
   /** The positioning name, e.g. "Digital Experience Engineering". */

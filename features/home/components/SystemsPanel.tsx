@@ -20,7 +20,7 @@ import type { PlatformName, ServiceIconName } from "@/types";
 
 type Entry =
   | { label: string; platform: PlatformName }
-  | { label: string; icon: ServiceIconName };
+  | { label: string; icon: ServiceIconName; accent: string };
 
 const SYSTEMS: Entry[] = [
   { label: "Meta", platform: "meta" },
@@ -28,9 +28,9 @@ const SYSTEMS: Entry[] = [
   { label: "YouTube", platform: "youtube" },
   { label: "LinkedIn", platform: "linkedin" },
   { label: "WhatsApp", platform: "whatsapp" },
-  { label: "Your website", icon: "website" },
-  { label: "Your CRM", icon: "records" },
-  { label: "Your analytics", icon: "telemetry" },
+  { label: "Your website", icon: "website", accent: "#00E5FF" },
+  { label: "Your CRM", icon: "records", accent: "#34D399" },
+  { label: "Your analytics", icon: "telemetry", accent: "#60A5FA" },
 ];
 
 export function SystemsPanel() {
@@ -52,7 +52,11 @@ export function SystemsPanel() {
               index < SYSTEMS.length - 2 ? "border-b border-line" : "",
             ].join(" ")}
           >
-            <span aria-hidden className="shrink-0 text-titanium-dim">
+            <span
+              aria-hidden
+              className="shrink-0"
+              style={"accent" in entry ? { color: entry.accent } : undefined}
+            >
               {"platform" in entry ? (
                 <PlatformLogo platform={entry.platform} className="h-5 w-5" />
               ) : (

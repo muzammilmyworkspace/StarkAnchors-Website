@@ -55,7 +55,9 @@ export function CapabilitySystems() {
               <div className="grid-12">
                 <div className="col-span-12 lg:col-span-7">
                   <div className="flex items-baseline gap-6">
-                    <span className="t-numeral">{category.index}</span>
+                    <span className="t-numeral" style={{ color: category.accent }}>
+                      {category.index}
+                    </span>
                     <span aria-hidden className="h-px flex-1 bg-line" />
                   </div>
 
@@ -126,8 +128,12 @@ export function CapabilitySystems() {
                     <div className="grid-12">
                       <div className="col-span-12 lg:col-span-4">
                         <Reveal>
-                          <span aria-hidden className="block text-titanium-dim">
-                            <CapabilityMark capability={capability} className="h-7 w-7" />
+                          <span aria-hidden className="block">
+                            <CapabilityMark
+                              capability={capability}
+                              accent={category.accent}
+                              className="h-7 w-7"
+                            />
                           </span>
                           <h3 className="t-display-m mt-5 max-w-[14ch] text-titanium">
                             {capability.name}
